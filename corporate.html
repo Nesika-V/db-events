@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
             --primary-font: 'DM Sans', sans-serif;
@@ -48,7 +47,6 @@
         .text-white { color: var(--text-white); }
         .text-center { text-align: center; }
 
-        /* Typography */
         h1, h2, h3, h4 {
             font-family: var(--heading-font);
             font-weight: 600;
@@ -70,7 +68,6 @@
         .section-text { font-size: 1.05rem; color: var(--text-muted); max-width: 800px; line-height: 1.75; }
         .text-center .section-text { margin: 0 auto 3rem; }
 
-        /* Accent line */
         .accent-line {
             width: 48px;
             height: 2px;
@@ -124,9 +121,12 @@
             letter-spacing: 0.15rem;
             line-height: 1.4;
             font-weight: 600;
-            color: var(--text-main);
+            color: rgba(255,255,255,0.85);
             text-transform: uppercase;
+            transition: var(--transition);
         }
+
+        header.scrolled .logo-text { color: var(--text-main); }
 
         .nav-links {
             display: flex;
@@ -137,7 +137,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-main);
+            color: rgba(255,255,255,0.9);
             font-size: 0.8rem;
             font-weight: 500;
             letter-spacing: 0.1rem;
@@ -145,6 +145,8 @@
             position: relative;
             text-transform: uppercase;
         }
+
+        header.scrolled .nav-links a { color: var(--text-main); }
 
         .nav-links a::after {
             content: '';
@@ -159,24 +161,38 @@
         .nav-links a.active::after { width: 100%; }
 
         .nav-cta {
-            background: var(--bg-dark) !important;
-            color: var(--text-white) !important;
+            background: rgba(255,255,255,0.15) !important;
+            color: white !important;
             padding: 0.7rem 1.6rem !important;
             letter-spacing: 0.1rem !important;
+            border: 1px solid rgba(255,255,255,0.3) !important;
+        }
+
+        header.scrolled .nav-cta {
+            background: var(--bg-dark) !important;
+            color: var(--text-white) !important;
+            border-color: var(--bg-dark) !important;
         }
 
         .nav-cta::after { display: none !important; }
 
-        .mobile-toggle { display: none; cursor: pointer; color: var(--text-main); }
+        /* Mobile toggle — inline SVG, no Lucide dependency */
+        .mobile-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.3rem;
+            color: white;
+            transition: var(--transition);
+            z-index: 1001;
+            position: relative;
+        }
 
-        /* Header white mode for dark hero */
-        header.hero-mode .logo-text { color: rgba(255,255,255,0.85); }
-        header.hero-mode .nav-links a { color: rgba(255,255,255,0.9); }
-        header.hero-mode .mobile-toggle { color: white; }
+        header.scrolled .mobile-toggle { color: var(--text-main); }
 
-        header.scrolled.hero-mode .logo-text { color: var(--text-main); }
-        header.scrolled.hero-mode .nav-links a { color: var(--text-main); }
-        header.scrolled.hero-mode .mobile-toggle { color: var(--text-main); }
+        /* When menu is open, toggle always dark (menu bg is white) */
+        .mobile-toggle.menu-open { color: var(--text-main) !important; }
 
         /* ─── HERO ─── */
         .hero {
@@ -200,7 +216,7 @@
 
         @keyframes zoomOut {
             from { transform: scale(1.08); }
-            to { transform: scale(1); }
+            to   { transform: scale(1); }
         }
 
         .hero-content { position: relative; z-index: 1; }
@@ -261,16 +277,6 @@
             border-color: var(--text-white);
         }
 
-        .btn-outline.btn-dark {
-            border-color: var(--bg-dark);
-            color: var(--bg-dark);
-        }
-
-        .btn-outline.btn-dark:hover {
-            background: var(--bg-dark);
-            color: var(--text-white);
-        }
-
         .btn-filled {
             background: var(--accent);
             color: var(--bg-dark);
@@ -284,28 +290,12 @@
             border-color: var(--bg-dark);
         }
 
-        /* Grid system */
         .grid { display: grid; gap: 3rem; }
         .grid-2-col { grid-template-columns: 1fr 1fr; }
         .grid-3-col { grid-template-columns: repeat(3, 1fr); }
         .grid-4-col { grid-template-columns: repeat(4, 1fr); }
         .grid-5-col { grid-template-columns: repeat(5, 1fr); }
         .grid-6-col { grid-template-columns: repeat(6, 1fr); }
-
-        /* link arrow */
-        .link-arrow {
-            text-decoration: none;
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.78rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            letter-spacing: 0.12rem;
-            text-transform: uppercase;
-            transition: var(--transition);
-        }
-        .link-arrow:hover { gap: 1rem; }
 
         /* ─── BRAND CAROUSEL ─── */
         .brand-carousel-section {
@@ -344,7 +334,7 @@
         .carousel-track:hover { animation-play-state: paused; }
 
         @keyframes scrollLeft {
-            0% { transform: translateX(0); }
+            0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
 
@@ -379,7 +369,7 @@
 
         .brand-logo-card:hover img { filter: grayscale(0); }
 
-        /* ─── CAPABILITY STATEMENT ─── */
+        /* ─── PHILOSOPHY ─── */
         .statement-content p {
             font-size: 1.05rem;
             color: var(--text-muted);
@@ -412,6 +402,8 @@
             color: var(--accent);
             margin-bottom: 1.5rem;
         }
+
+        .corp-icon svg { width: 22px; height: 22px; }
 
         .corp-event-card h3 {
             font-family: var(--primary-font);
@@ -455,6 +447,8 @@
             margin: 0 auto 1.2rem;
         }
 
+        .standard-icon svg { width: 22px; height: 22px; }
+
         .standard-item h4 {
             font-family: var(--primary-font);
             font-size: 0.82rem;
@@ -466,104 +460,8 @@
 
         .standard-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
-        /* ─── FOUNDERS SECTION ─── */
-        .founder-image {
-            height: 520px;
-            overflow: hidden;
-            background: var(--bg-light);
-            border-radius: 8px;
-        }
-
-        .founder-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            filter: grayscale(0.3);
-            transition: var(--transition);
-        }
-
-        .founder-card:hover .founder-image img { filter: grayscale(0); }
-
-        .founder-title {
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            letter-spacing: 0.1rem;
-        }
-
-        .founder-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
-
-        /* ─── COIMBATORE FOCUS ─── */
-        .focus-image {
-            height: 600px;
-            overflow: hidden;
-            border-radius: 8px;
-            background: var(--bg-light);
-        }
-
-        .focus-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            filter: grayscale(0.2);
-            transition: var(--transition);
-        }
-
-        .focus-image:hover img { filter: grayscale(0); }
-
-        .focus-content p {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.75;
-            margin-bottom: 1.2rem;
-        }
-
-        .founder-highlight {
-            border-left: 3px solid var(--accent);
-            padding: 1.2rem 1.5rem;
-            background: var(--bg-light);
-            border-radius: 0 4px 4px 0;
-            margin: 1.5rem 0;
-        }
-
-        .founder-highlight p {
-            font-size: 0.95rem;
-            margin-bottom: 0 !important;
-        }
-
-        /* ─── FEATURES GRID ─── */
-        .features-grid { gap: 0; }
-
-        .feature-item {
-            padding: 2.5rem;
-            border-left: 1px solid #e8e8e8;
-            border-bottom: 1px solid #e8e8e8;
-            transition: var(--transition);
-        }
-
-        .feature-item:hover { background: var(--bg-light); }
-
-        .feature-icon { margin-bottom: 1.2rem; color: var(--accent); }
-
-        .feature-item h3 {
-            font-size: 0.85rem;
-            font-family: var(--primary-font);
-            font-weight: 700;
-            margin-bottom: 0.7rem;
-            letter-spacing: 0.06rem;
-            text-transform: uppercase;
-        }
-
-        .feature-item p { font-size: 0.9rem; color: var(--text-muted); }
-
         /* ─── TRUST SIGNALS ─── */
-        .trust-grid {
-            margin: 3rem 0 2rem;
-            gap: 0;
-        }
+        .trust-grid { margin: 3rem 0 2rem; gap: 0; }
 
         .trust-item {
             display: flex;
@@ -641,12 +539,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .footer-logo-image {
-            width: 56px;
-            height: 56px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
+        .footer-logo-image { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
 
         .footer-logo-text {
             font-family: var(--primary-font);
@@ -665,10 +558,7 @@
             margin-bottom: 2rem;
         }
 
-        .footer-social-row {
-            display: flex;
-            gap: 0.8rem;
-        }
+        .footer-social-row { display: flex; gap: 0.8rem; }
 
         .social-btn {
             width: 40px;
@@ -722,9 +612,11 @@
             color: var(--accent);
             margin-top: 0.1rem;
             flex-shrink: 0;
+            line-height: 1;
         }
 
-        .footer-contact-item p, .footer-contact-item a {
+        .footer-contact-item p,
+        .footer-contact-item a {
             font-size: 0.88rem;
             color: rgba(255,255,255,0.6);
             line-height: 1.5;
@@ -774,7 +666,7 @@
 
         @keyframes fabPop {
             from { transform: scale(0); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            to   { transform: scale(1); opacity: 1; }
         }
 
         .whatsapp-fab:hover {
@@ -783,13 +675,7 @@
             box-shadow: 0 12px 40px rgba(37,211,102,0.45);
         }
 
-        .whatsapp-fab svg {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-        }
-
-        .whatsapp-fab .wa-text { letter-spacing: 0.02rem; }
+        .whatsapp-fab svg { width: 20px; height: 20px; flex-shrink: 0; }
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 992px) {
@@ -802,7 +688,9 @@
             .grid-2-col { grid-template-columns: 1fr; }
             .grid-3-col { grid-template-columns: 1fr; }
             .grid-5-col { grid-template-columns: repeat(2, 1fr); }
+
             .nav-links { display: none; }
+
             .nav-links.open {
                 display: flex;
                 flex-direction: column;
@@ -815,15 +703,27 @@
                 gap: 2.5rem;
                 z-index: 999;
             }
-            .nav-links.open a { font-size: 1.2rem; }
-            .mobile-toggle { display: block; z-index: 1001; position: relative; }
+
+            /* When open, all links go dark since bg is white */
+            .nav-links.open a {
+                font-size: 1.2rem;
+                color: var(--text-main) !important;
+            }
+
+            .nav-links.open .nav-cta {
+                background: var(--bg-dark) !important;
+                color: white !important;
+                border-color: var(--bg-dark) !important;
+                padding: 0.7rem 2rem !important;
+            }
+
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+
             .section-title { font-size: 2.2rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .whatsapp-fab .wa-text { display: none; }
             .whatsapp-fab { padding: 1rem; }
-            .founder-image { height: 350px; }
-            .focus-image { height: 360px; }
             .logo-image { width: 40px; height: 40px; }
         }
 
@@ -845,15 +745,12 @@
 
     <!-- WhatsApp FAB -->
     <a href="https://wa.me/919108075353" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Chat on WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
         <span class="wa-text">Chat with Us</span>
     </a>
 
     <!-- Header -->
-    <header id="main-header" class="hero-mode">
+    <header id="main-header">
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="assets/logo.png" alt="DB Events & Productions" class="logo-image">
@@ -866,9 +763,19 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="nav-cta">Contact</a></li>
             </ul>
-            <div class="mobile-toggle" id="mobile-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <!-- Hamburger icon -->
+                <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6"  x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <!-- Close icon -->
+                <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                    <line x1="18" y1="6"  x2="6"  y2="18"/>
+                    <line x1="6"  y1="6"  x2="18" y2="18"/>
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -957,32 +864,44 @@
                 <p class="section-text" style="color:rgba(255,255,255,0.55);margin-bottom:4rem;">End-to-end corporate event management for brands, institutions and leadership teams across South India.</p>
                 <div class="grid grid-3-col" style="text-align:left;margin-top:1rem;">
                     <div class="corp-event-card">
-                        <div class="corp-icon"><i data-lucide="users" size="22"></i></div>
+                        <div class="corp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
                         <h3>Leadership Summits</h3>
                         <p>High-stakes leadership environments executed with precision, professionalism and attention to every operational detail.</p>
                     </div>
                     <div class="corp-event-card">
-                        <div class="corp-icon"><i data-lucide="presentation" size="22"></i></div>
+                        <div class="corp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
                         <h3>Conferences & Gatherings</h3>
                         <p>Structured event experiences designed for seamless audience flow, stage management and guest coordination.</p>
                     </div>
                     <div class="corp-event-card">
-                        <div class="corp-icon"><i data-lucide="rocket" size="22"></i></div>
+                        <div class="corp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
                         <h3>Brand Launches</h3>
                         <p>Immersive brand experiences created to drive engagement, visibility and meaningful audience interaction.</p>
                     </div>
                     <div class="corp-event-card">
-                        <div class="corp-icon"><i data-lucide="star" size="22"></i></div>
+                        <div class="corp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
                         <h3>Executive & VIP Hospitality</h3>
                         <p>Thoughtfully managed guest journeys for leadership teams, speakers, delegates and global stakeholders.</p>
                     </div>
                     <div class="corp-event-card">
-                        <div class="corp-icon"><i data-lucide="monitor" size="22"></i></div>
+                        <div class="corp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
                         <h3>Production & Technicals</h3>
                         <p>Stage design, LED walls, sound, lighting and AV execution managed with reliability and precision.</p>
                     </div>
                     <div class="corp-event-card">
-                        <div class="corp-icon"><i data-lucide="award" size="22"></i></div>
+                        <div class="corp-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
                         <h3>Annual Events & Celebrations</h3>
                         <p>Experiences that balance professionalism, entertainment and atmosphere while reflecting your organizational culture.</p>
                     </div>
@@ -999,99 +918,40 @@
                 <p class="section-text" style="margin-bottom:4rem;">Five pillars that define every corporate event we produce — from the first brief to the final curtain call.</p>
                 <div class="grid grid-5-col" style="gap:1.5rem;">
                     <div class="standard-item">
-                        <div class="standard-icon"><i data-lucide="layout-grid" size="22"></i></div>
+                        <div class="standard-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                        </div>
                         <h4>Structured Execution</h4>
                         <p>Detailed planning and seamless backend coordination.</p>
                     </div>
                     <div class="standard-item">
-                        <div class="standard-icon"><i data-lucide="shield-check" size="22"></i></div>
+                        <div class="standard-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
                         <h4>Calm Under Pressure</h4>
                         <p>Experienced teams managing high-energy environments.</p>
                     </div>
                     <div class="standard-item">
-                        <div class="standard-icon"><i data-lucide="globe" size="22"></i></div>
+                        <div class="standard-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
                         <h4>Global Professionalism</h4>
                         <p>Modern execution standards and operational discipline.</p>
                     </div>
                     <div class="standard-item">
-                        <div class="standard-icon"><i data-lucide="heart" size="22"></i></div>
+                        <div class="standard-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
                         <h4>Elevated Hospitality</h4>
                         <p>Thoughtful guest experience that feels seamless.</p>
                     </div>
                     <div class="standard-item">
-                        <div class="standard-icon"><i data-lucide="user-check" size="22"></i></div>
+                        <div class="standard-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+                        </div>
                         <h4>Founder Oversight</h4>
                         <p>Hands-on leadership across every execution.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─── FOUNDERS / TEAM SECTION ─── -->
-        <section class="section-padding bg-light">
-            <div class="container">
-                <div class="text-center" style="margin-bottom:4rem;">
-                    <p class="overline">The People Behind the Events</p>
-                    <div class="accent-line"></div>
-                    <h2 class="section-title">Local Expertise.<br>Global Standards.</h2>
-                </div>
-
-                <!-- Barani (left) + centered founders photo + Disha (right) -->
-                <div style="display:grid; grid-template-columns:1fr 1.2fr 1fr; gap:3rem; align-items:start;">
-
-                    <!-- Left: Barani bio -->
-                    <div style="padding-top:2rem;">
-                        <p class="overline">Co-Founder</p>
-                        <h3 style="font-size:1.8rem;margin-bottom:0.4rem;">Barani Chander</h3>
-                        <p class="founder-title">Operations & Production</p>
-                        <p class="founder-bio" style="margin-bottom:1.5rem;">Barani brings years of high-pressure production experience, including his time at Wizcraft International Entertainment — one of India's most recognized event companies. He ensures every corporate event is executed with military precision and flawless structure.</p>
-                        <div style="display:flex;flex-direction:column;gap:0.9rem;">
-                            <div style="display:flex;align-items:center;gap:0.8rem;">
-                                <div style="width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="briefcase" size="14"></i></div>
-                                <span style="font-size:0.88rem;color:var(--text-muted);">Ex-Wizcraft International</span>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:0.8rem;">
-                                <div style="width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="zap" size="14"></i></div>
-                                <span style="font-size:0.88rem;color:var(--text-muted);">Large-scale event production</span>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:0.8rem;">
-                                <div style="width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="globe" size="14"></i></div>
-                                <span style="font-size:0.88rem;color:var(--text-muted);">Global-standard execution</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Center: joint founder photo -->
-                    <div style="text-align:center;">
-                        <div style="height:540px;overflow:hidden;border-radius:8px;background:var(--bg-white);">
-                            <img src="assets/founders.png" alt="Disha Dhingra & Barani Chander — Co-founders" style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(0.2);transition:var(--transition);">
-                        </div>
-                        <p style="margin-top:1.5rem;font-family:var(--heading-font);font-size:1.1rem;font-weight:600;">Disha Dhingra & Barani Chander</p>
-                        <p style="font-size:0.75rem;color:var(--accent);letter-spacing:0.12rem;text-transform:uppercase;margin-top:0.3rem;">Co-founders, DB Events & Productions</p>
-                    </div>
-
-                    <!-- Right: Disha bio -->
-                    <div style="padding-top:2rem;">
-                        <p class="overline">Co-Founder</p>
-                        <h3 style="font-size:1.8rem;margin-bottom:0.4rem;">Disha Dhingra</h3>
-                        <p class="founder-title">Creative Direction & Client Experience</p>
-                        <p class="founder-bio" style="margin-bottom:1.5rem;">Disha leads the creative vision and client relationship at DB Events. Her strong design sensibility and client-first approach ensure that every corporate event not only runs flawlessly but leaves a lasting impression on every attendee.</p>
-                        <div style="display:flex;flex-direction:column;gap:0.9rem;">
-                            <div style="display:flex;align-items:center;gap:0.8rem;">
-                                <div style="width:32px;height:32px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="palette" size="14"></i></div>
-                                <span style="font-size:0.88rem;color:var(--text-muted);">Creative & aesthetic direction</span>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:0.8rem;">
-                                <div style="width:32px;height:32px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="users" size="14"></i></div>
-                                <span style="font-size:0.88rem;color:var(--text-muted);">Client experience champion</span>
-                            </div>
-                            <div style="display:flex;align-items:center;gap:0.8rem;">
-                                <div style="width:32px;height:32px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="heart" size="14"></i></div>
-                                <span style="font-size:0.88rem;color:var(--text-muted);">Detail-driven event curation</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -1103,26 +963,11 @@
                 <div class="accent-line"></div>
                 <h2 class="section-title">Designed for Modern Organizations.</h2>
                 <div class="trust-grid grid grid-5-col">
-                    <div class="trust-item">
-                        <span class="trust-value">IT, BFSI</span>
-                        <span class="trust-label">Industry Sectors</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-value">100–5000+</span>
-                        <span class="trust-label">Event Scale</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-value">CXO Events</span>
-                        <span class="trust-label">Leadership Level</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-value">Luxury</span>
-                        <span class="trust-label">Venue Standards</span>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-value">Execution</span>
-                        <span class="trust-label">Core Focus</span>
-                    </div>
+                    <div class="trust-item"><span class="trust-value">IT, BFSI</span><span class="trust-label">Industry Sectors</span></div>
+                    <div class="trust-item"><span class="trust-value">100–5000+</span><span class="trust-label">Event Scale</span></div>
+                    <div class="trust-item"><span class="trust-value">CXO Events</span><span class="trust-label">Leadership Level</span></div>
+                    <div class="trust-item"><span class="trust-value">Luxury</span><span class="trust-label">Venue Standards</span></div>
+                    <div class="trust-item"><span class="trust-value">Execution</span><span class="trust-label">Core Focus</span></div>
                 </div>
             </div>
         </section>
@@ -1137,21 +982,11 @@
                         <h2 class="section-title">Trusted by Brands<br>&amp; Global Leaders</h2>
                     </div>
                     <div style="display:flex;gap:4rem;">
-                        <div class="stat-item">
-                            <span class="stat-number">200+</span>
-                            <span class="stat-label">Corporate Events</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Brands Served</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
+                        <div class="stat-item"><span class="stat-number">200+</span><span class="stat-label">Corporate Events</span></div>
+                        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Brands Served</span></div>
+                        <div class="stat-item"><span class="stat-number">10+</span><span class="stat-label">Years Experience</span></div>
                     </div>
                 </div>
-
                 <div class="carousel-track-wrapper">
                     <div class="carousel-track" id="carousel-track-2">
                         <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/google.png" alt="Google"></div>
@@ -1216,7 +1051,6 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <!-- Brand -->
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <img src="assets/logo.png" alt="DB Events & Productions" class="footer-logo-image">
@@ -1225,32 +1059,19 @@
                     <p>Coimbatore's premier event management studio. Delivering world-class corporate and wedding experiences across South India.</p>
                     <div class="footer-social-row">
                         <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
                         <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                <rect x="2" y="9" width="4" height="12"/>
-                                <circle cx="4" cy="4" r="2"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
                         <a href="mailto:disha@dbeventsandproduction.com" class="social-btn" aria-label="Email">
-                            <i data-lucide="mail" size="16"></i>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                         </a>
                         <a href="https://wa.me/919108075353" target="_blank" class="social-btn" aria-label="WhatsApp">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                                <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
                         </a>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
@@ -1262,29 +1083,32 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact -->
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <div class="footer-contact-item">
-                        <div class="icon"><i data-lucide="phone" size="15"></i></div>
+                        <div class="icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.21 3.17 2 2 0 0 1 3.22 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
                         <a href="tel:+919108075353">+91 91080 75353</a>
                     </div>
                     <div class="footer-contact-item">
-                        <div class="icon"><i data-lucide="mail" size="15"></i></div>
+                        <div class="icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
                         <a href="mailto:disha@dbeventsandproduction.com">disha@dbeventsandproduction.com</a>
                     </div>
                     <div class="footer-contact-item">
-                        <div class="icon"><i data-lucide="map-pin" size="15"></i></div>
+                        <div class="icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
                         <p>Coimbatore, Tamil Nadu, India</p>
                     </div>
-                    <a href="https://wa.me/919108075353" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;transition:var(--transition);">
+                    <a href="https://wa.me/919108075353" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
                         WhatsApp Us
                     </a>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <p>© 2024 DB Events & Productions. All Rights Reserved.</p>
                 <div class="footer-cities">
@@ -1298,40 +1122,47 @@
         </div>
     </footer>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        lucide.createIcons();
-
-        // Header scroll behavior
+        // ── Header scroll ──
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // Mobile menu
-        const toggle = document.getElementById('mobile-toggle');
-        const navLinks = document.getElementById('nav-links');
+        // ── Mobile menu ──
+        const toggle    = document.getElementById('mobile-toggle');
+        const navLinks  = document.getElementById('nav-links');
+        const iconMenu  = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+
         toggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            const icon = toggle.querySelector('i');
-            icon.setAttribute('data-lucide', navLinks.classList.contains('open') ? 'x' : 'menu');
-            lucide.createIcons();
+            const isOpen = navLinks.classList.toggle('open');
+            iconMenu.style.display  = isOpen ? 'none'  : 'block';
+            iconClose.style.display = isOpen ? 'block' : 'none';
+            toggle.classList.toggle('menu-open', isOpen);
         });
 
-        // Duplicate carousels for seamless loop
-        function duplicateCarousel(id) {
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                iconMenu.style.display  = 'block';
+                iconClose.style.display = 'none';
+                toggle.classList.remove('menu-open');
+            });
+        });
+
+        // ── Duplicate carousels for seamless loop ──
+        function duplicateCarousel(id, reverse) {
             const track = document.getElementById(id);
             if (!track) return;
-            Array.from(track.children).forEach(item => {
-                track.appendChild(item.cloneNode(true));
-            });
+            Array.from(track.children).forEach(item => track.appendChild(item.cloneNode(true)));
+            if (reverse) track.style.animationDirection = 'reverse';
         }
 
-        duplicateCarousel('carousel-track');
-        duplicateCarousel('carousel-track-2');
-        document.getElementById('carousel-track-2').style.animationDirection = 'reverse';
+        duplicateCarousel('carousel-track', false);
+        duplicateCarousel('carousel-track-2', true);
 
-        // Smooth scroll
+        // ── Smooth scroll ──
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', e => {
                 const target = document.querySelector(link.getAttribute('href'));
