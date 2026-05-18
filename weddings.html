@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Wedding Planner in Coimbatore | DB Events & Productions</title>
+    <meta name="description" content="DB Events & Productions is a premium wedding planning company in Coimbatore specializing in luxury weddings, end-to-end wedding management, décor, hospitality and seamless wedding experiences.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-font: 'DM Sans', sans-serif;
+            --heading-font: 'Cormorant Garamond', serif;
+            --bg-white: #ffffff;
+            --bg-light: #f8f6f2;
+            --bg-dark: #0d0d0d;
+            --text-main: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --text-white: #ffffff;
+            --accent: #c5a059;
+            --accent-light: #e8d5a3;
+            --transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --container-width: 1200px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--primary-font);
+            color: var(--text-main);
+            line-height: 1.6;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding { padding: 100px 0; }
+        .bg-light { background-color: var(--bg-light); }
+        .bg-dark { background-color: var(--bg-dark); }
+        .text-white { color: var(--text-white); }
+        .text-center { text-align: center; }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+            font-family: var(--primary-font);
+        }
+
+        .section-title { font-size: 3rem; margin-bottom: 1.5rem; }
+        .section-text { font-size: 1.05rem; color: var(--text-muted); max-width: 800px; line-height: 1.75; }
+        .text-center .section-text { margin: 0 auto 3rem; }
+
+        .accent-line {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 2rem;
+        }
+        .text-center .accent-line { margin: 0 auto 2rem; }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(14px);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.06);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-image {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-family: var(--primary-font);
+            font-size: 0.62rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.4;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1rem;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--bg-dark) !important;
+            color: var(--text-white) !important;
+            padding: 0.7rem 1.6rem !important;
+            letter-spacing: 0.1rem !important;
+        }
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle { display: none; cursor: pointer; color: var(--text-main); }
+
+        header.hero-mode .logo-text { color: rgba(255,255,255,0.85); }
+        header.hero-mode .nav-links a { color: rgba(255,255,255,0.9); }
+        header.hero-mode .mobile-toggle { color: white; }
+        header.scrolled.hero-mode .logo-text { color: var(--text-main); }
+        header.scrolled.hero-mode .nav-links a { color: var(--text-main); }
+        header.scrolled.hero-mode .mobile-toggle { color: var(--text-main); }
+
+        /* ─── HERO ─── */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--text-white);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: zoomOut 20s infinite alternate;
+        }
+
+        @keyframes zoomOut {
+            from { transform: scale(1.08); }
+            to { transform: scale(1); }
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 0.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-family: var(--primary-font);
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 9vw, 7.5rem);
+            margin-bottom: 2rem;
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        .hero-title span { color: var(--accent-light); }
+
+        .hero-description {
+            font-size: 1.15rem;
+            max-width: 540px;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+            font-family: var(--primary-font);
+            line-height: 1.65;
+        }
+
+        .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2.4rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-family: var(--primary-font);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--text-white);
+        }
+        .btn-outline:hover { background: var(--text-white); color: var(--bg-dark); border-color: var(--text-white); }
+
+        .btn-outline.btn-dark { border-color: var(--bg-dark); color: var(--bg-dark); }
+        .btn-outline.btn-dark:hover { background: var(--bg-dark); color: var(--text-white); }
+
+        .btn-filled {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border: 1px solid var(--accent);
+            font-weight: 700;
+        }
+        .btn-filled:hover { background: transparent; color: var(--bg-dark); border-color: var(--bg-dark); }
+
+        .link-arrow {
+            text-decoration: none;
+            color: var(--accent-light);
+            font-weight: 600;
+            font-size: 0.78rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.12rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+        .link-arrow:hover { gap: 1rem; }
+
+        /* ─── GRID ─── */
+        .grid { display: grid; gap: 3rem; }
+        .grid-2-col { grid-template-columns: 1fr 1fr; }
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .grid-4-col { grid-template-columns: repeat(4, 1fr); }
+        .grid-5-col { grid-template-columns: repeat(5, 1fr); }
+
+        /* ─── BRAND CAROUSEL ─── */
+        .brand-carousel-section {
+            padding: 60px 0;
+            background: var(--bg-light);
+            overflow: hidden;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .carousel-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-family: var(--primary-font);
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .carousel-track-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: scrollLeft 28s linear infinite;
+        }
+        .carousel-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .brand-logo-card {
+            flex-shrink: 0;
+            width: 160px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1rem;
+            background: var(--bg-white);
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 8px;
+            transition: var(--transition);
+            padding: 1rem 1.5rem;
+        }
+
+        .brand-logo-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .brand-logo-card img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            filter: grayscale(0.15);
+            transition: var(--transition);
+        }
+        .brand-logo-card:hover img { filter: grayscale(0); }
+
+        /* ─── PHILOSOPHY CARDS ─── */
+        .philosophy-card {
+            padding: 2.5rem;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        .philosophy-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 32px rgba(197,160,89,0.1);
+            transform: translateY(-4px);
+        }
+        .philosophy-card h3 {
+            font-family: var(--primary-font);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+        .philosophy-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ─── CHECKLIST ─── */
+        .check-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+
+        .check-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            font-family: var(--primary-font);
+        }
+
+        .check-list li i {
+            width: 28px;
+            height: 28px;
+            background: rgba(197,160,89,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            flex-shrink: 0;
+            padding: 6px;
+        }
+
+        /* ─── SERVICE BLOCKS ─── */
+        .service-block {
+            padding: 2.5rem;
+            border-top: 1px solid #e8e8e8;
+            transition: var(--transition);
+            position: relative;
+        }
+        .service-block:hover { background: var(--bg-light); }
+        .service-block:hover::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 48px; height: 2px;
+            background: var(--accent);
+        }
+
+        .service-number {
+            font-family: var(--heading-font);
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            line-height: 1;
+            margin-bottom: 1.2rem;
+        }
+
+        .service-block h3 {
+            font-family: var(--primary-font);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-block p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ─── VALUE ITEMS ─── */
+        .value-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .value-item:last-child { border-bottom: none; }
+
+        .value-item h4 {
+            font-family: var(--primary-font);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .value-item h4::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .value-item p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.6rem; }
+
+        /* ─── WHY IMAGE ─── */
+        .why-image {
+            height: 580px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--bg-white);
+        }
+        .why-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(0.2);
+            transition: var(--transition);
+        }
+        .why-image:hover img { filter: grayscale(0); }
+
+        /* ─── CELEBRATION CARDS ─── */
+        .celebration-card { overflow: hidden; border-radius: 4px; }
+
+        .card-image {
+            height: 260px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            background: var(--bg-light);
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .celebration-card:hover .card-image img { transform: scale(1.06); }
+
+        .celebration-card h4 {
+            font-family: var(--primary-font);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .celebration-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+        /* ─── PROCESS TIMELINE ─── */
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent) 20%, var(--accent) 80%, transparent);
+        }
+
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .step-num {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--bg-white);
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-num {
+            background: var(--accent);
+            color: white;
+        }
+
+        .process-step h4 {
+            font-family: var(--primary-font);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .process-step p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* ─── CTA ─── */
+        .cta-section {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1410 100%);
+            color: white;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #0a0a0a;
+            color: var(--text-white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-image {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-logo-text {
+            font-family: var(--primary-font);
+            font-size: 0.65rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.5;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social-row { display: flex; gap: 0.8rem; }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            transition: var(--transition);
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(197,160,89,0.08);
+        }
+
+        .footer-col h4 {
+            font-family: var(--primary-font);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18rem;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.9rem; }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+        .footer-col a:hover { color: var(--accent); }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact-item .icon {
+            color: var(--accent);
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item p,
+        .footer-contact-item a {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-contact-item a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-cities { display: flex; gap: 1rem; }
+        .footer-cities span { opacity: 0.5; }
+        .footer-city { opacity: 1 !important; }
+
+        /* ─── WHATSAPP FAB ─── */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #25D366;
+            color: white;
+            padding: 0.9rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: var(--primary-font);
+            box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+            transition: var(--transition);
+            animation: fabPop 0.5s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes fabPop {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .whatsapp-fab:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+        }
+
+        .whatsapp-fab svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .whatsapp-fab .wa-text { letter-spacing: 0.02rem; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 992px) {
+            .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+            .grid-4-col { grid-template-columns: repeat(2, 1fr); }
+            .grid-5-col { grid-template-columns: repeat(3, 1fr); }
+            .process-timeline { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+            .process-timeline::before { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2-col { grid-template-columns: 1fr; }
+            .grid-3-col { grid-template-columns: 1fr; }
+            .grid-4-col { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: var(--bg-white);
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                z-index: 999;
+            }
+            .nav-links.open a { font-size: 1.2rem; }
+            .mobile-toggle { display: block; z-index: 1001; position: relative; }
+            .section-title { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .whatsapp-fab .wa-text { display: none; }
+            .whatsapp-fab { padding: 1rem; }
+            .why-image { height: 340px; }
+            .logo-image { width: 40px; height: 40px; }
+            .process-timeline { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-title { font-size: clamp(2.5rem, 8vw, 4rem); }
+            .hero-actions { flex-direction: column; gap: 1rem; }
+            .btn { padding: 0.85rem 1.8rem; font-size: 0.75rem; }
+            .section-padding { padding: 60px 0; }
+            .process-timeline { grid-template-columns: 1fr; }
+            .card-image { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/919108075353" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
+        </svg>
+        <span class="wa-text">Chat with Us</span>
+    </a>
+
+    <!-- Header -->
+    <header id="main-header" class="hero-mode">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="DB Events & Productions" class="logo-image">
+                <div class="logo-text">Events &<br>Productions</div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="corporate.html">Corporate Events</a></li>
+                <li><a href="weddings.html" class="active">Wedding Events</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ─── HERO ─── -->
+        <section class="hero">
+            <div class="hero-background" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%), url('assets/por1.jpg');"></div>
+            <div class="hero-content container">
+                <p class="hero-subtitle">Premium Wedding Planning</p>
+                <h1 class="hero-title">Luxury<br><span>Weddings</span></h1>
+                <p class="hero-description">Thoughtfully designed. Flawlessly executed. End-to-end wedding planning in Coimbatore for celebrations that feel timeless and unforgettable.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-filled">Schedule a Consultation</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── BRAND CAROUSEL ─── -->
+        <div class="brand-carousel-section">
+            <p class="carousel-label">Trusted by Families Across South India</p>
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="brand-logo-card"><img src="assets/brands/google.png" alt="Google"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/infosys.png" alt="Infosys"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/comet.png" alt="Comet"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/accenture.png" alt="Accenture"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/american.png" alt="American"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/aprilia.png" alt="Aprilia"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/aws.png" alt="AWS"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ceat.png" alt="CEAT"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ferrari.png" alt="Ferrari"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/flipkart.png" alt="Flipkart"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ford.png" alt="Ford"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/hero.png" alt="Hero"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ktm.png" alt="KTM"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/logitech.png" alt="Logitech"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/mg.png" alt="MG"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/redbull.png" alt="Red Bull"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ssvm.png" alt="SSVM"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/sun.png" alt="Sun"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── PHILOSOPHY ─── -->
+        <section class="section-padding">
+            <div class="container text-center">
+                <p class="overline">Our Philosophy</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title">More Than A Wedding.<br>An Experience Your Guests Will Remember.</h2>
+                <p class="section-text" style="margin-bottom:4rem;">At DB Events & Productions, we create wedding experiences that feel intentional, elevated and unforgettable — blending aesthetics, hospitality and precision at every step.</p>
+                <div class="grid grid-3-col" style="gap:1.5rem;text-align:left;">
+                    <div class="philosophy-card">
+                        <h3>Personal Intentionality</h3>
+                        <p>We believe weddings are not just events — they are deeply personal experiences shaped by emotion, atmosphere, culture and connection. Every celebration is treated as completely unique.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h3>Curated Details</h3>
+                        <p>From intimate gatherings to grand multi-day celebrations, our role goes beyond coordination. We curate every detail with care, ensuring your celebration feels effortless and immersive.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h3>Modern Luxury</h3>
+                        <p>As a premium wedding planning company in Coimbatore, we bring together creative direction, operational structure and warm hospitality under one experienced roof.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── ONE TEAM APPROACH ─── -->
+        <section class="section-padding bg-dark text-white">
+            <div class="container">
+                <div class="grid grid-2-col" style="align-items:center;gap:6rem;">
+                    <div>
+                        <p class="overline" style="color:rgba(255,255,255,0.4);">The DB Approach</p>
+                        <div class="accent-line"></div>
+                        <h2 class="section-title">One Vision. One Team.<br>One Seamless Experience.</h2>
+                        <p class="section-text" style="color:rgba(255,255,255,0.6);margin-bottom:1.5rem;">Planning a wedding involves hundreds of moving parts. Our approach is designed to simplify the process while elevating the experience.</p>
+                        <p class="section-text" style="color:rgba(255,255,255,0.6);margin-bottom:0;">DB Events & Productions manages every aspect of the celebration through a single integrated team — ensuring consistency, clarity and flawless execution from start to finish.</p>
+                        <div style="display:flex;gap:3rem;margin-top:3rem;">
+                            <div>
+                                <div style="font-family:var(--heading-font);font-size:2.8rem;font-weight:600;color:var(--accent);line-height:1;">150+</div>
+                                <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);letter-spacing:0.05rem;margin-top:0.3rem;">Weddings Delivered</div>
+                            </div>
+                            <div>
+                                <div style="font-family:var(--heading-font);font-size:2.8rem;font-weight:600;color:var(--accent);line-height:1;">10+</div>
+                                <div style="font-size:0.78rem;color:rgba(255,255,255,0.4);letter-spacing:0.05rem;margin-top:0.3rem;">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="check-list">
+                            <li><i data-lucide="check" size="14"></i> End-to-End Wedding Planning</li>
+                            <li><i data-lucide="check" size="14"></i> Dedicated Coordination Team</li>
+                            <li><i data-lucide="check" size="14"></i> Creative Direction & Styling</li>
+                            <li><i data-lucide="check" size="14"></i> Vendor & Venue Management</li>
+                            <li><i data-lucide="check" size="14"></i> Hospitality & Guest Experience</li>
+                            <li><i data-lucide="check" size="14"></i> Entertainment & Artist Management</li>
+                            <li><i data-lucide="check" size="14"></i> Production & Technical Execution</li>
+                            <li><i data-lucide="check" size="14"></i> Timeline & Logistics Management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SERVICES ─── -->
+        <section id="services" class="section-padding">
+            <div class="container">
+                <div class="text-center" style="margin-bottom:4rem;">
+                    <p class="overline">Our Capabilities</p>
+                    <div class="accent-line"></div>
+                    <h2 class="section-title">End-to-End Wedding Planning<br>in Coimbatore</h2>
+                </div>
+                <div class="grid grid-3-col" style="gap:0;">
+                    <div class="service-block">
+                        <div class="service-number">01</div>
+                        <h3>Planning & Coordination</h3>
+                        <p>From initial concepts to final execution, we oversee timelines, vendor coordination, budgets and every operational detail with precision.</p>
+                    </div>
+                    <div class="service-block">
+                        <div class="service-number">02</div>
+                        <h3>Décor & Styling</h3>
+                        <p>Thoughtfully curated aesthetics designed around your story, vision and celebration style — from intimate elegance to large-format luxury.</p>
+                    </div>
+                    <div class="service-block">
+                        <div class="service-number">03</div>
+                        <h3>Guest Hospitality</h3>
+                        <p>Seamless guest experiences through structured hospitality, accommodation management, transportation and on-ground assistance.</p>
+                    </div>
+                    <div class="service-block">
+                        <div class="service-number">04</div>
+                        <h3>Entertainment & Experiences</h3>
+                        <p>Artist curation, performances, immersive celebrations and custom experiences that feel vibrant and unforgettable.</p>
+                    </div>
+                    <div class="service-block">
+                        <div class="service-number">05</div>
+                        <h3>Production & Logistics</h3>
+                        <p>Lighting, sound, stage design, technical production and backend coordination managed with professionalism and precision.</p>
+                    </div>
+                    <div class="service-block">
+                        <div class="service-number">06</div>
+                        <h3>Concept Development</h3>
+                        <p>From theme ideation to mood boards and full creative briefs — translating your vision into a cohesive, beautiful celebration.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── WHY DB ─── */-->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="grid grid-2-col" style="align-items:center;gap:5rem;">
+                    <div class="why-image">
+                        <img src="assets/wedding.png" alt="Why Families Choose DB Events">
+                    </div>
+                    <div>
+                        <p class="overline">Our Value</p>
+                        <div class="accent-line"></div>
+                        <h2 class="section-title">Why Families Choose<br>DB Events & Productions</h2>
+                        <div class="value-item">
+                            <h4>Founder-Led Experiences</h4>
+                            <p>Every wedding is guided with personal involvement and close attention to detail from Disha and Barani.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Creative + Operational Balance</h4>
+                            <p>Aesthetic vision supported by structured planning and seamless backend execution.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Modern Yet Cultural</h4>
+                            <p>Celebrations that feel contemporary while respecting traditions and emotions.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Coimbatore Expertise</h4>
+                            <p>Deep local network, venue knowledge and hospitality understanding with a modern global approach.</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Stress-Free Planning</h4>
+                            <p>One experienced team managing every moving part under one roof — so you can enjoy every moment.</p>
+                        </div>
+                        <a href="https://wa.me/919108075353" target="_blank" class="btn btn-filled" style="margin-top:2.5rem;">Book a Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CELEBRATIONS WE CURATE ─── -->
+        <section class="section-padding">
+            <div class="container text-center">
+                <p class="overline">Types of Weddings</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title">Celebrations We Curate</h2>
+                <p class="section-text" style="margin-bottom:4rem;">From intimate gatherings to grand multi-day affairs — every celebration is crafted with the same level of care and attention.</p>
+                <div class="grid grid-4-col" style="gap:2rem;text-align:left;">
+                    <div class="celebration-card">
+                        <div class="card-image"><img src="assets/por13.jpg" alt="Intimate Weddings"></div>
+                        <h4>Intimate Weddings</h4>
+                        <p>Elegant and meaningful celebrations designed with warmth, care and intentionality.</p>
+                    </div>
+                    <div class="celebration-card">
+                        <div class="card-image"><img src="assets/por8.jpg" alt="Luxury Multi-Day Weddings"></div>
+                        <h4>Luxury Multi-Day Weddings</h4>
+                        <p>Immersive wedding experiences executed seamlessly across multiple events and guest touchpoints.</p>
+                    </div>
+                    <div class="celebration-card">
+                        <div class="card-image"><img src="assets/cor11.jpg" alt="South Indian Weddings"></div>
+                        <h4>South Indian Weddings</h4>
+                        <p>Celebrations rooted in culture, tradition and hospitality with elevated modern aesthetics.</p>
+                    </div>
+                    <div class="celebration-card">
+                        <div class="card-image"><img src="assets/por1.jpg" alt="Destination Style Weddings"></div>
+                        <h4>Destination-Style Weddings</h4>
+                        <p>Globally inspired wedding experiences curated within Coimbatore and across South India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── PROCESS ─── -->
+        <section class="section-padding bg-light">
+            <div class="container text-center">
+                <p class="overline">Our Approach</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title">Our Wedding Planning Process</h2>
+                <p class="section-text" style="margin-bottom:0;">A structured, five-stage journey from your first conversation to the final celebration.</p>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <span class="step-num">01</span>
+                        <h4>Discovery</h4>
+                        <p>Understanding your vision, preferences, scale and celebration style.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">02</span>
+                        <h4>Concept & Planning</h4>
+                        <p>Building creative direction, timelines and the execution roadmap.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">03</span>
+                        <h4>Design & Coordination</h4>
+                        <p>Finalizing décor, vendors, hospitality and guest experiences.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">04</span>
+                        <h4>Execution</h4>
+                        <p>Seamless on-ground management with complete operational oversight.</p>
+                    </div>
+                    <div class="process-step">
+                        <span class="step-num">05</span>
+                        <h4>Celebration</h4>
+                        <p>Allowing you and your family to fully experience every moment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA ─── -->
+        <section id="contact" class="cta-section section-padding">
+            <div class="container text-center">
+                <p class="overline" style="color:rgba(255,255,255,0.4);">Ready to Begin?</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title text-white">Let's Create A Wedding That Feels Truly Yours.</h2>
+                <p class="section-text" style="color:rgba(255,255,255,0.6);">Whether you're planning an intimate celebration or a grand luxury wedding in Coimbatore, DB Events & Productions brings together creativity, structure and flawless execution to create experiences that feel timeless.</p>
+                <div class="cta-actions">
+                    <a href="https://wa.me/919108075353" target="_blank" class="btn btn-filled">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
+                        WhatsApp Us
+                    </a>
+                    <a href="mailto:disha@dbeventsandproduction.com" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:white;">Email Us</a>
+                </div>
+                <div style="margin-top:3rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;">
+                    <div style="text-align:center;">
+                        <p style="font-family:var(--heading-font);font-size:1.3rem;color:var(--accent);margin-bottom:0.3rem;">+91 91080 75353</p>
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1rem;text-transform:uppercase;">Call / WhatsApp</p>
+                    </div>
+                    <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+                    <div style="text-align:center;">
+                        <p style="font-family:var(--heading-font);font-size:1.3rem;color:var(--accent);margin-bottom:0.3rem;">disha@dbeventsandproduction.com</p>
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1rem;text-transform:uppercase;">Email</p>
+                    </div>
+                    <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+                    <div style="text-align:center;">
+                        <p style="font-family:var(--heading-font);font-size:1.3rem;color:var(--accent);margin-bottom:0.3rem;">Coimbatore, Tamil Nadu</p>
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1rem;text-transform:uppercase;">Location</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="DB Events & Productions" class="footer-logo-image">
+                        <div class="footer-logo-text">Events &<br>Productions</div>
+                    </div>
+                    <p>Coimbatore's premier event management studio. Delivering world-class wedding and corporate experiences across South India.</p>
+                    <div class="footer-social-row">
+                        <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:disha@dbeventsandproduction.com" class="social-btn" aria-label="Email">
+                            <i data-lucide="mail" size="16"></i>
+                        </a>
+                        <a href="https://wa.me/919108075353" target="_blank" class="social-btn" aria-label="WhatsApp">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                                <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="corporate.html">Corporate Events</a></li>
+                        <li><a href="weddings.html">Wedding Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <div class="icon"><i data-lucide="phone" size="15"></i></div>
+                        <a href="tel:+919108075353">+91 91080 75353</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="icon"><i data-lucide="mail" size="15"></i></div>
+                        <a href="mailto:disha@dbeventsandproduction.com">disha@dbeventsandproduction.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="icon"><i data-lucide="map-pin" size="15"></i></div>
+                        <p>Coimbatore, Tamil Nadu, India</p>
+                    </div>
+                    <a href="https://wa.me/919108075353" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;transition:var(--transition);">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
+                        WhatsApp Us
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 DB Events & Productions. All Rights Reserved.</p>
+                <div class="footer-cities">
+                    <span class="footer-city">Coimbatore</span>
+                    <span>·</span>
+                    <span class="footer-city">Bangalore</span>
+                    <span>·</span>
+                    <span class="footer-city">Chennai</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Header scroll behavior
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = toggle.querySelector('i');
+            icon.setAttribute('data-lucide', navLinks.classList.contains('open') ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+
+        // Duplicate carousel for seamless loop
+        function duplicateCarousel(id) {
+            const track = document.getElementById(id);
+            if (!track) return;
+            Array.from(track.children).forEach(item => {
+                track.appendChild(item.cloneNode(true));
+            });
+        }
+        duplicateCarousel('carousel-track');
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    navLinks.classList.remove('open');
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

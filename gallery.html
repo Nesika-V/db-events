@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | DB Events & Productions | Event Portfolio</title>
+    <meta name="description" content="Explore our portfolio of luxury weddings and corporate events. Watch event highlights and view stunning photography from DB Events & Productions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-font: 'DM Sans', sans-serif;
+            --heading-font: 'Cormorant Garamond', serif;
+            --bg-white: #ffffff;
+            --bg-light: #f8f6f2;
+            --bg-dark: #0d0d0d;
+            --text-main: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --text-white: #ffffff;
+            --accent: #c5a059;
+            --accent-light: #e8d5a3;
+            --transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --container-width: 1200px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--primary-font);
+            color: var(--text-main);
+            line-height: 1.6;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding { padding: 100px 0; }
+        .bg-light { background-color: var(--bg-light); }
+        .bg-dark { background-color: var(--bg-dark); }
+        .text-white { color: var(--text-white); }
+        .text-center { text-align: center; }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+            font-family: var(--primary-font);
+        }
+
+        .section-title { font-size: 3rem; margin-bottom: 1.5rem; }
+        .section-text { font-size: 1.05rem; color: var(--text-muted); max-width: 800px; line-height: 1.75; }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(14px);
+        }
+
+        header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.06);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-image {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-family: var(--primary-font);
+            font-size: 0.62rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.4;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1rem;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--bg-dark) !important;
+            color: var(--text-white) !important;
+            padding: 0.7rem 1.6rem !important;
+            letter-spacing: 0.1rem !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle { display: none; cursor: pointer; background: none; border: none; padding: 0.3rem; }
+
+        /* ─── HERO ─── */
+        .gallery-hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8f6f2 0%, #ffffff 100%);
+        }
+
+        .gallery-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery-hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ─── VIDEO SECTION ─── */
+        .videos-section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .accent-line {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin: 1.5rem auto 2rem;
+        }
+
+        /* ── VIDEO GRID: always 2 columns, 3 rows ── */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 360px);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .video-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .video-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 56px rgba(0,0,0,0.28);
+        }
+
+        /* KEY FIX: video fills the cell completely */
+        .video-item video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* mute indicator overlay */
+        .video-mute-hint {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.55);
+            color: #fff;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            font-size: 0.9rem;
+        }
+
+        .video-item:hover .video-mute-hint {
+            opacity: 1;
+        }
+
+        /* ─── FILTER TABS ─── */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            border: 2px solid #e0e0e0;
+            background: var(--bg-white);
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: var(--transition);
+            font-family: var(--primary-font);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+        }
+
+        /* ─── IMAGE GALLERY ─── */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 280px;
+            gap: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: var(--bg-light);
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: var(--transition);
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-category {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-category {
+            opacity: 1;
+        }
+
+        .gallery-category-text {
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* stagger animation delays */
+        .gallery-item:nth-child(1) { animation-delay: 0.05s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.15s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.25s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.35s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.45s; }
+        .gallery-item:nth-child(10) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(11) { animation-delay: 0.55s; }
+        .gallery-item:nth-child(12) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── WHATSAPP FAB ─── */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #25D366;
+            color: white;
+            padding: 0.9rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: var(--primary-font);
+            box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+            transition: var(--transition);
+            animation: fabPop 0.5s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes fabPop {
+            from { transform: scale(0); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        .whatsapp-fab:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+        }
+
+        .whatsapp-fab svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #0a0a0a;
+            color: var(--text-white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-image {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-logo-text {
+            font-family: var(--primary-font);
+            font-size: 0.65rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.5;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social-row { display: flex; gap: 0.8rem; }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            transition: var(--transition);
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(197,160,89,0.08);
+        }
+
+        .footer-col h4 {
+            font-family: var(--primary-font);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18rem;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.9rem; }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover { color: var(--accent); }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact-item .icon {
+            color: var(--accent);
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .footer-contact-item p,
+        .footer-contact-item a {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact-item a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-cities { display: flex; gap: 1rem; }
+        .footer-cities span { opacity: 0.5; }
+        .footer-city { opacity: 1 !important; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .video-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 280px);
+            }
+            .image-gallery { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 240px; }
+            .gallery-item.large { grid-column: span 1; grid-row: span 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: var(--bg-white);
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                z-index: 999;
+            }
+            .nav-links.open a { font-size: 1.2rem; }
+            .mobile-toggle { display: flex; align-items: center; justify-content: center; z-index: 1001; position: relative; }
+            .gallery-hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .whatsapp-fab .wa-text { display: none; }
+            .whatsapp-fab { padding: 1rem; }
+            .logo-image { width: 40px; height: 40px; }
+            .image-gallery { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .filter-tabs { gap: 1rem; }
+            .video-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 240px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1.5rem; }
+            .gallery-hero h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .footer-grid { gap: 1.5rem; }
+            .section-padding { padding: 60px 0; }
+            .videos-section { padding: 60px 0; }
+            .gallery-hero { height: 50vh; padding-top: 60px; }
+            .video-grid {
+                gap: 1rem;
+                grid-template-rows: repeat(6, 200px);
+            }
+            .image-gallery { grid-template-columns: 1fr; grid-auto-rows: auto; }
+            .filter-btn { padding: 0.7rem 1.5rem; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/919108075353" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
+        </svg>
+        <span class="wa-text">Chat with Us</span>
+    </a>
+
+    <!-- Header -->
+    <header id="main-header">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="DB Events & Productions" class="logo-image">
+                <div class="logo-text">Events &<br>Productions</div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="corporate.html">Corporate Events</a></li>
+                <li><a href="weddings.html">Wedding Events</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="gallery-hero">
+            <div class="container text-center">
+                <p class="overline">Our Portfolio</p>
+                <h1>Experiences We've Created</h1>
+                <p>A visual journey through luxury weddings and high-impact corporate events designed and executed flawlessly.</p>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section class="videos-section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="overline">Event Highlights</p>
+                    <div class="accent-line"></div>
+                    <h2 class="section-title">Our Latest Event Videos</h2>
+                    <p class="section-text" style="margin: 0 auto;">Watch the magic unfold in our recent weddings and corporate experiences.</p>
+                </div>
+
+                <div class="video-grid">
+                    <div class="video-item" data-muted="true">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/cor12.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-mute-hint">🔇</div>
+                    </div>
+                    <div class="video-item" data-muted="true">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/cor13.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-mute-hint">🔇</div>
+                    </div>
+                    <div class="video-item" data-muted="true">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/cor14.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-mute-hint">🔇</div>
+                    </div>
+                    <div class="video-item" data-muted="true">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/cor15.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-mute-hint">🔇</div>
+                    </div>
+                    <div class="video-item" data-muted="true">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/cor16.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-mute-hint">🔇</div>
+                    </div>
+                    <div class="video-item" data-muted="true">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source src="assets/entry.mp4" type="video/mp4">
+                        </video>
+                        <div class="video-mute-hint">🔇</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <p class="overline">Gallery</p>
+                    <div class="accent-line"></div>
+                    <h2 class="section-title">Event Photography</h2>
+                </div>
+
+
+                <!-- Image Grid -->
+                <div class="image-gallery" id="image-gallery">
+                    <div class="gallery-item large" data-category="wedding">
+                        <img src="assets/cor1.jpg" alt="Wedding Ceremony">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="wedding">
+                        <img src="assets/cor11.jpg" alt="Bridal Prep">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="wedding">
+                        <img src="assets/hero.png" alt="Reception">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="corporate">
+                        <img src="assets/por1.jpg" alt="Conference">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item large" data-category="corporate">
+                        <img src="assets/por8.jpg" alt="Team Building">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="social">
+                        <img src="assets/por13.jpg" alt="Party">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="wedding">
+                        <img src="assets/por15.jpg" alt="Decoration">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="corporate">
+                        <img src="assets/por16.jpg" alt="Awards">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="social">
+                        <img src="assets/por17.jpg" alt="Celebration">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item large" data-category="wedding">
+                        <img src="assets/por18.jpg" alt="Reception Decor">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item" data-category="social">
+                        <img src="assets/por19.jpg" alt="Celebration">
+                        <div class="gallery-category"></div>
+                    </div>
+                    <div class="gallery-item large" data-category="wedding">
+                        <img src="assets/por20.jpg" alt="Reception Decor">
+                        <div class="gallery-category"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="DB Events & Productions" class="footer-logo-image">
+                        <div class="footer-logo-text">Events &<br>Productions</div>
+                    </div>
+                    <p>Coimbatore's premier event management studio. Delivering world-class wedding and corporate experiences across South India.</p>
+                    <div class="footer-social-row">
+                        <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:disha@dbeventsandproduction.com" class="social-btn" aria-label="Email">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/919108075353" target="_blank" class="social-btn" aria-label="WhatsApp">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                                <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="weddings.html">Wedding Events</a></li>
+                        <li><a href="corporate.html">Corporate Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <div class="icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.21 3.17 2 2 0 0 1 3.22 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <a href="tel:+919108075353">+91 91080 75353</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        </div>
+                        <a href="mailto:disha@dbeventsandproduction.com">disha@dbeventsandproduction.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <p>Coimbatore, Tamil Nadu, India</p>
+                    </div>
+                    <a href="https://wa.me/919108075353" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;transition:all 0.3s ease;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DB Events & Productions. All Rights Reserved.</p>
+                <div class="footer-cities">
+                    <span class="footer-city">Coimbatore</span>
+                    <span>·</span>
+                    <span class="footer-city">Bangalore</span>
+                    <span>·</span>
+                    <span class="footer-city">Chennai</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Header scroll ──
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // ── Mobile menu ──
+        const toggle   = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            menuIcon.style.display  = isOpen ? 'none'  : 'block';
+            closeIcon.style.display = isOpen ? 'block' : 'none';
+        });
+
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuIcon.style.display  = 'block';
+                closeIcon.style.display = 'none';
+            });
+        });
+
+        // ── Videos: click = toggle mute (loop is untouched) ──
+        document.querySelectorAll('.video-item').forEach(item => {
+            const video = item.querySelector('video');
+            const hint  = item.querySelector('.video-mute-hint');
+
+            // Ensure loop persists (defensive — attribute already set)
+            video.loop = true;
+
+            // Try autoplay; browsers may block it
+            video.play().catch(() => {});
+
+            item.addEventListener('click', () => {
+                video.muted = !video.muted;
+                item.dataset.muted = video.muted ? 'true' : 'false';
+                hint.textContent = video.muted ? '🔇' : '🔊';
+                // Make hint briefly visible on click regardless of hover
+                hint.style.opacity = '1';
+                clearTimeout(item._hintTimer);
+                item._hintTimer = setTimeout(() => { hint.style.opacity = ''; }, 1500);
+            });
+        });
+
+        // ── Gallery filter ──
+        const filterBtns   = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                galleryItems.forEach(item => {
+                    const match = filter === 'all' || item.dataset.category === filter;
+                    item.classList.toggle('hidden', !match);
+                });
+            });
+        });
+
+        // ── Smooth scroll for anchor links ──
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    navLinks.classList.remove('open');
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

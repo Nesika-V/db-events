@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Event Management Company in Coimbatore | DB Events & Productions</title>
+    <meta name="description" content="DB Events & Productions is a premium corporate event management company in Coimbatore specializing in conferences, leadership summits, launches, experiential events and end-to-end corporate event execution.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-font: 'DM Sans', sans-serif;
+            --heading-font: 'Cormorant Garamond', serif;
+            --bg-white: #ffffff;
+            --bg-light: #f8f6f2;
+            --bg-dark: #0d0d0d;
+            --text-main: #1a1a1a;
+            --text-muted: #6b6b6b;
+            --text-white: #ffffff;
+            --accent: #c5a059;
+            --accent-light: #e8d5a3;
+            --transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --container-width: 1200px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--primary-font);
+            color: var(--text-main);
+            line-height: 1.6;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding { padding: 100px 0; }
+        .bg-light { background-color: var(--bg-light); }
+        .bg-dark { background-color: var(--bg-dark); }
+        .text-white { color: var(--text-white); }
+        .text-center { text-align: center; }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .overline {
+            font-size: 0.72rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            display: block;
+            font-weight: 500;
+            font-family: var(--primary-font);
+        }
+
+        .section-title { font-size: 3rem; margin-bottom: 1.5rem; }
+        .section-text { font-size: 1.05rem; color: var(--text-muted); max-width: 800px; line-height: 1.75; }
+        .text-center .section-text { margin: 0 auto 3rem; }
+
+        /* Accent line */
+        .accent-line {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 2rem;
+        }
+        .text-center .accent-line { margin: 0 auto 2rem; }
+
+        /* ─── HEADER ─── */
+        header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(14px);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.06);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-image {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            font-family: var(--primary-font);
+            font-size: 0.62rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.4;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1rem;
+            transition: var(--transition);
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--bg-dark) !important;
+            color: var(--text-white) !important;
+            padding: 0.7rem 1.6rem !important;
+            letter-spacing: 0.1rem !important;
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle { display: none; cursor: pointer; color: var(--text-main); }
+
+        /* Header white mode for dark hero */
+        header.hero-mode .logo-text { color: rgba(255,255,255,0.85); }
+        header.hero-mode .nav-links a { color: rgba(255,255,255,0.9); }
+        header.hero-mode .mobile-toggle { color: white; }
+
+        header.scrolled.hero-mode .logo-text { color: var(--text-main); }
+        header.scrolled.hero-mode .nav-links a { color: var(--text-main); }
+        header.scrolled.hero-mode .mobile-toggle { color: var(--text-main); }
+
+        /* ─── HERO ─── */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--text-white);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            animation: zoomOut 20s infinite alternate;
+        }
+
+        @keyframes zoomOut {
+            from { transform: scale(1.08); }
+            to { transform: scale(1); }
+        }
+
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 0.3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            font-family: var(--primary-font);
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 9vw, 7.5rem);
+            margin-bottom: 2rem;
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        .hero-title span { color: var(--accent-light); }
+
+        .hero-description {
+            font-size: 1.15rem;
+            max-width: 540px;
+            margin-bottom: 3rem;
+            opacity: 0.85;
+            font-family: var(--primary-font);
+            line-height: 1.65;
+        }
+
+        .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2.4rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-family: var(--primary-font);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--text-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-white);
+            color: var(--bg-dark);
+            border-color: var(--text-white);
+        }
+
+        .btn-outline.btn-dark {
+            border-color: var(--bg-dark);
+            color: var(--bg-dark);
+        }
+
+        .btn-outline.btn-dark:hover {
+            background: var(--bg-dark);
+            color: var(--text-white);
+        }
+
+        .btn-filled {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border: 1px solid var(--accent);
+            font-weight: 700;
+        }
+
+        .btn-filled:hover {
+            background: transparent;
+            color: var(--bg-dark);
+            border-color: var(--bg-dark);
+        }
+
+        /* Grid system */
+        .grid { display: grid; gap: 3rem; }
+        .grid-2-col { grid-template-columns: 1fr 1fr; }
+        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
+        .grid-4-col { grid-template-columns: repeat(4, 1fr); }
+        .grid-5-col { grid-template-columns: repeat(5, 1fr); }
+        .grid-6-col { grid-template-columns: repeat(6, 1fr); }
+
+        /* link arrow */
+        .link-arrow {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.78rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: 0.12rem;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+        .link-arrow:hover { gap: 1rem; }
+
+        /* ─── BRAND CAROUSEL ─── */
+        .brand-carousel-section {
+            padding: 60px 0;
+            background: var(--bg-light);
+            overflow: hidden;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .carousel-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-family: var(--primary-font);
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .carousel-track-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: scrollLeft 28s linear infinite;
+        }
+
+        .carousel-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .brand-logo-card {
+            flex-shrink: 0;
+            width: 160px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1rem;
+            background: var(--bg-white);
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 8px;
+            transition: var(--transition);
+            padding: 1rem 1.5rem;
+        }
+
+        .brand-logo-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .brand-logo-card img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            filter: grayscale(0.15);
+            transition: var(--transition);
+        }
+
+        .brand-logo-card:hover img { filter: grayscale(0); }
+
+        /* ─── CAPABILITY STATEMENT ─── */
+        .statement-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 1.2rem;
+        }
+
+        /* ─── CORPORATE EVENT CARDS ─── */
+        .corp-event-card {
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .corp-event-card:hover {
+            border-color: var(--accent);
+            background: rgba(197,160,89,0.06);
+            transform: translateY(-4px);
+        }
+
+        .corp-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(197,160,89,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .corp-event-card h3 {
+            font-family: var(--primary-font);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-white);
+            letter-spacing: 0.02rem;
+        }
+
+        .corp-event-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.7;
+        }
+
+        /* ─── DB STANDARD ─── */
+        .standard-item {
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .standard-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 32px rgba(197,160,89,0.12);
+            transform: translateY(-4px);
+        }
+
+        .standard-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(197,160,89,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            margin: 0 auto 1.2rem;
+        }
+
+        .standard-item h4 {
+            font-family: var(--primary-font);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+        }
+
+        .standard-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* ─── FOUNDERS SECTION ─── */
+        .founder-image {
+            height: 520px;
+            overflow: hidden;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(0.3);
+            transition: var(--transition);
+        }
+
+        .founder-card:hover .founder-image img { filter: grayscale(0); }
+
+        .founder-title {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1rem;
+        }
+
+        .founder-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+        /* ─── COIMBATORE FOCUS ─── */
+        .focus-image {
+            height: 600px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--bg-light);
+        }
+
+        .focus-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(0.2);
+            transition: var(--transition);
+        }
+
+        .focus-image:hover img { filter: grayscale(0); }
+
+        .focus-content p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 1.2rem;
+        }
+
+        .founder-highlight {
+            border-left: 3px solid var(--accent);
+            padding: 1.2rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 0 4px 4px 0;
+            margin: 1.5rem 0;
+        }
+
+        .founder-highlight p {
+            font-size: 0.95rem;
+            margin-bottom: 0 !important;
+        }
+
+        /* ─── FEATURES GRID ─── */
+        .features-grid { gap: 0; }
+
+        .feature-item {
+            padding: 2.5rem;
+            border-left: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover { background: var(--bg-light); }
+
+        .feature-icon { margin-bottom: 1.2rem; color: var(--accent); }
+
+        .feature-item h3 {
+            font-size: 0.85rem;
+            font-family: var(--primary-font);
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.06rem;
+            text-transform: uppercase;
+        }
+
+        .feature-item p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* ─── TRUST SIGNALS ─── */
+        .trust-grid {
+            margin: 3rem 0 2rem;
+            gap: 0;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            border-right: 1px solid #e8e8e8;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .trust-item:first-child { border-left: 1px solid #e8e8e8; }
+
+        .trust-value {
+            font-family: var(--heading-font);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .trust-label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        /* ─── STATS ─── */
+        .stats { gap: 3rem; }
+
+        .stat-item { display: flex; flex-direction: column; }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05rem; }
+
+        /* ─── CTA SECTION ─── */
+        .cta-section {
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1410 100%);
+            color: white;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #0a0a0a;
+            color: var(--text-white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-image {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-logo-text {
+            font-family: var(--primary-font);
+            font-size: 0.65rem;
+            letter-spacing: 0.15rem;
+            line-height: 1.5;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            line-height: 1.75;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social-row {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.5);
+            transition: var(--transition);
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .social-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(197,160,89,0.08);
+        }
+
+        .footer-col h4 {
+            font-family: var(--primary-font);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.18rem;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.9rem; }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover { color: var(--accent); }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact-item .icon {
+            color: var(--accent);
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item p, .footer-contact-item a {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact-item a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.3);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-cities { display: flex; gap: 1rem; }
+        .footer-cities span { opacity: 0.5; }
+        .footer-city { opacity: 1 !important; }
+
+        /* ─── WHATSAPP FAB ─── */
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #25D366;
+            color: white;
+            padding: 0.9rem 1.4rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: var(--primary-font);
+            box-shadow: 0 8px 32px rgba(37,211,102,0.35);
+            transition: var(--transition);
+            animation: fabPop 0.5s 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+        }
+
+        @keyframes fabPop {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .whatsapp-fab:hover {
+            background: #20ba5a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+        }
+
+        .whatsapp-fab svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-fab .wa-text { letter-spacing: 0.02rem; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 992px) {
+            .grid-3-col { grid-template-columns: repeat(2, 1fr); }
+            .grid-5-col { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2-col { grid-template-columns: 1fr; }
+            .grid-3-col { grid-template-columns: 1fr; }
+            .grid-5-col { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: var(--bg-white);
+                align-items: center;
+                justify-content: center;
+                gap: 2.5rem;
+                z-index: 999;
+            }
+            .nav-links.open a { font-size: 1.2rem; }
+            .mobile-toggle { display: block; z-index: 1001; position: relative; }
+            .section-title { font-size: 2.2rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .whatsapp-fab .wa-text { display: none; }
+            .whatsapp-fab { padding: 1rem; }
+            .founder-image { height: 350px; }
+            .focus-image { height: 360px; }
+            .logo-image { width: 40px; height: 40px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-title { font-size: clamp(2.5rem, 8vw, 4rem); }
+            .hero-actions { flex-direction: column; gap: 1rem; }
+            .btn { padding: 0.85rem 1.8rem; font-size: 0.75rem; }
+            .section-padding { padding: 60px 0; }
+            .corp-event-card { padding: 1.8rem; }
+            .standard-item { padding: 1.5rem 1rem; }
+            .grid-5-col { grid-template-columns: 1fr 1fr; }
+            .trust-item:first-child { border-left: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- WhatsApp FAB -->
+    <a href="https://wa.me/919108075353" target="_blank" rel="noopener" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
+        </svg>
+        <span class="wa-text">Chat with Us</span>
+    </a>
+
+    <!-- Header -->
+    <header id="main-header" class="hero-mode">
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="DB Events & Productions" class="logo-image">
+                <div class="logo-text">Events &<br>Productions</div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="corporate.html" class="active">Corporate Events</a></li>
+                <li><a href="weddings.html">Wedding Events</a></li>
+                <li><a href="about.html">Our Story</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ─── HERO ─── -->
+        <section class="hero">
+            <div class="hero-background" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 100%), url('assets/cor1.jpg');"></div>
+            <div class="hero-content container">
+                <p class="hero-subtitle">Precision &amp; Impact</p>
+                <h1 class="hero-title">Corporate<br><span>Experiences</span></h1>
+                <p class="hero-description">Premium corporate event management in Coimbatore — designed for brands, leadership teams and organizations that demand professionalism, precision and real impact.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-filled">Schedule a Consultation</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── BRAND CAROUSEL ─── -->
+        <div class="brand-carousel-section">
+            <p class="carousel-label">Trusted by India's Leading Brands & Organizations</p>
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="brand-logo-card"><img src="assets/brands/google.png" alt="Google"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/infosys.png" alt="Infosys"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/accenture.png" alt="Accenture"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/aws.png" alt="AWS"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ibm.png" alt="IBM"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/wipro.png" alt="Wipro"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/meta.png" alt="Meta"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/lt.png" alt="L&T"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/cii.png" alt="CII"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/icai.png" alt="ICAI"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/flipkart.png" alt="Flipkart"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/logitech.png" alt="Logitech"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/redbull.png" alt="Red Bull"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/sagility.png" alt="Sagility"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/startuptn.png" alt="StartupTN"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/yotta.png" alt="Yotta"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ford.png" alt="Ford"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/tv9.png" alt="TV9"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ─── PHILOSOPHY ─── -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="grid grid-2-col" style="align-items:start; gap:5rem;">
+                    <div>
+                        <p class="overline">Our Philosophy</p>
+                        <div class="accent-line"></div>
+                        <h2 class="section-title">When Execution Matters,<br>Details Matter More.</h2>
+                        <p class="section-text">Corporate events are a direct reflection of the organization behind them. Every detail shapes perception.</p>
+                    </div>
+                    <div class="statement-content" style="padding-top:0.5rem;">
+                        <p>From leadership summits to brand experiences, every element — timing, hospitality, production and guest flow — contributes to how your organization is seen.</p>
+                        <p>At DB Events & Productions, we combine creative direction with operational excellence to deliver corporate experiences that feel seamless, elevated and professionally executed.</p>
+                        <p>As a leading corporate event management company in Coimbatore, we partner with organizations that expect more than coordination — they expect confidence, structure and reliability.</p>
+                        <div style="display:flex; gap:3rem; margin-top:2.5rem;">
+                            <div>
+                                <div style="font-family:var(--heading-font);font-size:2.8rem;font-weight:600;color:var(--accent);line-height:1;">200+</div>
+                                <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:0.05rem;margin-top:0.3rem;">Corporate Events</div>
+                            </div>
+                            <div>
+                                <div style="font-family:var(--heading-font);font-size:2.8rem;font-weight:600;color:var(--accent);line-height:1;">10+</div>
+                                <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:0.05rem;margin-top:0.3rem;">Years Experience</div>
+                            </div>
+                            <div>
+                                <div style="font-family:var(--heading-font);font-size:2.8rem;font-weight:600;color:var(--accent);line-height:1;">50+</div>
+                                <div style="font-size:0.78rem;color:var(--text-muted);letter-spacing:0.05rem;margin-top:0.3rem;">Brands Served</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── WHAT WE DO ─── -->
+        <section id="services" class="section-padding bg-dark text-white">
+            <div class="container text-center">
+                <p class="overline" style="color:rgba(255,255,255,0.4);">Our Services</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title">Corporate Events We Produce</h2>
+                <p class="section-text" style="color:rgba(255,255,255,0.55);margin-bottom:4rem;">End-to-end corporate event management for brands, institutions and leadership teams across South India.</p>
+                <div class="grid grid-3-col" style="text-align:left;margin-top:1rem;">
+                    <div class="corp-event-card">
+                        <div class="corp-icon"><i data-lucide="users" size="22"></i></div>
+                        <h3>Leadership Summits</h3>
+                        <p>High-stakes leadership environments executed with precision, professionalism and attention to every operational detail.</p>
+                    </div>
+                    <div class="corp-event-card">
+                        <div class="corp-icon"><i data-lucide="presentation" size="22"></i></div>
+                        <h3>Conferences & Gatherings</h3>
+                        <p>Structured event experiences designed for seamless audience flow, stage management and guest coordination.</p>
+                    </div>
+                    <div class="corp-event-card">
+                        <div class="corp-icon"><i data-lucide="rocket" size="22"></i></div>
+                        <h3>Brand Launches</h3>
+                        <p>Immersive brand experiences created to drive engagement, visibility and meaningful audience interaction.</p>
+                    </div>
+                    <div class="corp-event-card">
+                        <div class="corp-icon"><i data-lucide="star" size="22"></i></div>
+                        <h3>Executive & VIP Hospitality</h3>
+                        <p>Thoughtfully managed guest journeys for leadership teams, speakers, delegates and global stakeholders.</p>
+                    </div>
+                    <div class="corp-event-card">
+                        <div class="corp-icon"><i data-lucide="monitor" size="22"></i></div>
+                        <h3>Production & Technicals</h3>
+                        <p>Stage design, LED walls, sound, lighting and AV execution managed with reliability and precision.</p>
+                    </div>
+                    <div class="corp-event-card">
+                        <div class="corp-icon"><i data-lucide="award" size="22"></i></div>
+                        <h3>Annual Events & Celebrations</h3>
+                        <p>Experiences that balance professionalism, entertainment and atmosphere while reflecting your organizational culture.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── THE DB STANDARD ─── -->
+        <section class="section-padding">
+            <div class="container text-center">
+                <p class="overline">The DB Standard</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title">Built for Precision</h2>
+                <p class="section-text" style="margin-bottom:4rem;">Five pillars that define every corporate event we produce — from the first brief to the final curtain call.</p>
+                <div class="grid grid-5-col" style="gap:1.5rem;">
+                    <div class="standard-item">
+                        <div class="standard-icon"><i data-lucide="layout-grid" size="22"></i></div>
+                        <h4>Structured Execution</h4>
+                        <p>Detailed planning and seamless backend coordination.</p>
+                    </div>
+                    <div class="standard-item">
+                        <div class="standard-icon"><i data-lucide="shield-check" size="22"></i></div>
+                        <h4>Calm Under Pressure</h4>
+                        <p>Experienced teams managing high-energy environments.</p>
+                    </div>
+                    <div class="standard-item">
+                        <div class="standard-icon"><i data-lucide="globe" size="22"></i></div>
+                        <h4>Global Professionalism</h4>
+                        <p>Modern execution standards and operational discipline.</p>
+                    </div>
+                    <div class="standard-item">
+                        <div class="standard-icon"><i data-lucide="heart" size="22"></i></div>
+                        <h4>Elevated Hospitality</h4>
+                        <p>Thoughtful guest experience that feels seamless.</p>
+                    </div>
+                    <div class="standard-item">
+                        <div class="standard-icon"><i data-lucide="user-check" size="22"></i></div>
+                        <h4>Founder Oversight</h4>
+                        <p>Hands-on leadership across every execution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── FOUNDERS / TEAM SECTION ─── -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="text-center" style="margin-bottom:4rem;">
+                    <p class="overline">The People Behind the Events</p>
+                    <div class="accent-line"></div>
+                    <h2 class="section-title">Local Expertise.<br>Global Standards.</h2>
+                </div>
+
+                <!-- Barani (left) + centered founders photo + Disha (right) -->
+                <div style="display:grid; grid-template-columns:1fr 1.2fr 1fr; gap:3rem; align-items:start;">
+
+                    <!-- Left: Barani bio -->
+                    <div style="padding-top:2rem;">
+                        <p class="overline">Co-Founder</p>
+                        <h3 style="font-size:1.8rem;margin-bottom:0.4rem;">Barani Chander</h3>
+                        <p class="founder-title">Operations & Production</p>
+                        <p class="founder-bio" style="margin-bottom:1.5rem;">Barani brings years of high-pressure production experience, including his time at Wizcraft International Entertainment — one of India's most recognized event companies. He ensures every corporate event is executed with military precision and flawless structure.</p>
+                        <div style="display:flex;flex-direction:column;gap:0.9rem;">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="briefcase" size="14"></i></div>
+                                <span style="font-size:0.88rem;color:var(--text-muted);">Ex-Wizcraft International</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="zap" size="14"></i></div>
+                                <span style="font-size:0.88rem;color:var(--text-muted);">Large-scale event production</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:32px;height:32px;background:white;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="globe" size="14"></i></div>
+                                <span style="font-size:0.88rem;color:var(--text-muted);">Global-standard execution</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Center: joint founder photo -->
+                    <div style="text-align:center;">
+                        <div style="height:540px;overflow:hidden;border-radius:8px;background:var(--bg-white);">
+                            <img src="assets/founders.png" alt="Disha Dhingra & Barani Chander — Co-founders" style="width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(0.2);transition:var(--transition);">
+                        </div>
+                        <p style="margin-top:1.5rem;font-family:var(--heading-font);font-size:1.1rem;font-weight:600;">Disha Dhingra & Barani Chander</p>
+                        <p style="font-size:0.75rem;color:var(--accent);letter-spacing:0.12rem;text-transform:uppercase;margin-top:0.3rem;">Co-founders, DB Events & Productions</p>
+                    </div>
+
+                    <!-- Right: Disha bio -->
+                    <div style="padding-top:2rem;">
+                        <p class="overline">Co-Founder</p>
+                        <h3 style="font-size:1.8rem;margin-bottom:0.4rem;">Disha Dhingra</h3>
+                        <p class="founder-title">Creative Direction & Client Experience</p>
+                        <p class="founder-bio" style="margin-bottom:1.5rem;">Disha leads the creative vision and client relationship at DB Events. Her strong design sensibility and client-first approach ensure that every corporate event not only runs flawlessly but leaves a lasting impression on every attendee.</p>
+                        <div style="display:flex;flex-direction:column;gap:0.9rem;">
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:32px;height:32px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="palette" size="14"></i></div>
+                                <span style="font-size:0.88rem;color:var(--text-muted);">Creative & aesthetic direction</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:32px;height:32px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="users" size="14"></i></div>
+                                <span style="font-size:0.88rem;color:var(--text-muted);">Client experience champion</span>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:0.8rem;">
+                                <div style="width:32px;height:32px;background:var(--bg-light);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><i data-lucide="heart" size="14"></i></div>
+                                <span style="font-size:0.88rem;color:var(--text-muted);">Detail-driven event curation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── TRUST SIGNALS ─── -->
+        <section class="section-padding">
+            <div class="container text-center">
+                <p class="overline">Trusted Across High-Impact Environments</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title">Designed for Modern Organizations.</h2>
+                <div class="trust-grid grid grid-5-col">
+                    <div class="trust-item">
+                        <span class="trust-value">IT, BFSI</span>
+                        <span class="trust-label">Industry Sectors</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-value">100–5000+</span>
+                        <span class="trust-label">Event Scale</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-value">CXO Events</span>
+                        <span class="trust-label">Leadership Level</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-value">Luxury</span>
+                        <span class="trust-label">Venue Standards</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-value">Execution</span>
+                        <span class="trust-label">Core Focus</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── DARK STATS + CAROUSEL ─── -->
+        <section class="section-padding bg-dark text-white">
+            <div class="container">
+                <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem;">
+                    <div>
+                        <p class="overline" style="color:rgba(255,255,255,0.4);">By The Numbers</p>
+                        <div class="accent-line"></div>
+                        <h2 class="section-title">Trusted by Brands<br>&amp; Global Leaders</h2>
+                    </div>
+                    <div style="display:flex;gap:4rem;">
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Corporate Events</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Brands Served</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-track-wrapper">
+                    <div class="carousel-track" id="carousel-track-2">
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/google.png" alt="Google"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/infosys.png" alt="Infosys"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/accenture.png" alt="Accenture"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/aws.png" alt="AWS"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/ibm.png" alt="IBM"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/wipro.png" alt="Wipro"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/meta.png" alt="Meta"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/lt.png" alt="L&T"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/cii.png" alt="CII"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/flipkart.png" alt="Flipkart"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/redbull.png" alt="Red Bull"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/startuptn.png" alt="StartupTN"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/yotta.png" alt="Yotta"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/sagility.png" alt="Sagility"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/ford.png" alt="Ford"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/logitech.png" alt="Logitech"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/tv9.png" alt="TV9"></div>
+                        <div class="brand-logo-card" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.1);"><img src="assets/brands/icai.png" alt="ICAI"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CTA ─── -->
+        <section id="contact" class="cta-section section-padding">
+            <div class="container text-center">
+                <p class="overline" style="color:rgba(255,255,255,0.4);">Ready to Begin?</p>
+                <div class="accent-line"></div>
+                <h2 class="section-title text-white">Let's Build Something Exceptional.</h2>
+                <p class="section-text" style="color:rgba(255,255,255,0.6);">Whether you're planning a leadership summit, conference, launch or corporate gathering in Coimbatore — DB Events & Productions delivers experiences that combine professionalism, precision and seamless execution.</p>
+                <div class="cta-actions">
+                    <a href="https://wa.me/919108075353" target="_blank" class="btn btn-filled">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
+                        WhatsApp Us
+                    </a>
+                    <a href="mailto:disha@dbeventsandproduction.com" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:white;">Email Us</a>
+                </div>
+                <div style="margin-top:3rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;">
+                    <div style="text-align:center;">
+                        <p style="font-family:var(--heading-font);font-size:1.3rem;color:var(--accent);margin-bottom:0.3rem;">+91 91080 75353</p>
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1rem;text-transform:uppercase;">Call / WhatsApp</p>
+                    </div>
+                    <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+                    <div style="text-align:center;">
+                        <p style="font-family:var(--heading-font);font-size:1.3rem;color:var(--accent);margin-bottom:0.3rem;">disha@dbeventsandproduction.com</p>
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1rem;text-transform:uppercase;">Email</p>
+                    </div>
+                    <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+                    <div style="text-align:center;">
+                        <p style="font-family:var(--heading-font);font-size:1.3rem;color:var(--accent);margin-bottom:0.3rem;">Coimbatore, Tamil Nadu</p>
+                        <p style="font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.1rem;text-transform:uppercase;">Location</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="DB Events & Productions" class="footer-logo-image">
+                        <div class="footer-logo-text">Events &<br>Productions</div>
+                    </div>
+                    <p>Coimbatore's premier event management studio. Delivering world-class corporate and wedding experiences across South India.</p>
+                    <div class="footer-social-row">
+                        <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:disha@dbeventsandproduction.com" class="social-btn" aria-label="Email">
+                            <i data-lucide="mail" size="16"></i>
+                        </a>
+                        <a href="https://wa.me/919108075353" target="_blank" class="social-btn" aria-label="WhatsApp">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                                <path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="corporate.html">Corporate Events</a></li>
+                        <li><a href="weddings.html">Wedding Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <div class="icon"><i data-lucide="phone" size="15"></i></div>
+                        <a href="tel:+919108075353">+91 91080 75353</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="icon"><i data-lucide="mail" size="15"></i></div>
+                        <a href="mailto:disha@dbeventsandproduction.com">disha@dbeventsandproduction.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="icon"><i data-lucide="map-pin" size="15"></i></div>
+                        <p>Coimbatore, Tamil Nadu, India</p>
+                    </div>
+                    <a href="https://wa.me/919108075353" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;transition:var(--transition);">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
+                        WhatsApp Us
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 DB Events & Productions. All Rights Reserved.</p>
+                <div class="footer-cities">
+                    <span class="footer-city">Coimbatore</span>
+                    <span>·</span>
+                    <span class="footer-city">Bangalore</span>
+                    <span>·</span>
+                    <span class="footer-city">Chennai</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+
+        // Header scroll behavior
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Mobile menu
+        const toggle = document.getElementById('mobile-toggle');
+        const navLinks = document.getElementById('nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = toggle.querySelector('i');
+            icon.setAttribute('data-lucide', navLinks.classList.contains('open') ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+
+        // Duplicate carousels for seamless loop
+        function duplicateCarousel(id) {
+            const track = document.getElementById(id);
+            if (!track) return;
+            Array.from(track.children).forEach(item => {
+                track.appendChild(item.cloneNode(true));
+            });
+        }
+
+        duplicateCarousel('carousel-track');
+        duplicateCarousel('carousel-track-2');
+        document.getElementById('carousel-track-2').style.animationDirection = 'reverse';
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    navLinks.classList.remove('open');
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
