@@ -96,6 +96,8 @@
             height: 48px;
             object-fit: contain;
             flex-shrink: 0;
+            background: transparent;
+            mix-blend-mode: multiply; /* Hides the white background on light surfaces */
         }
 
         .logo-text {
@@ -316,7 +318,6 @@
             align-items: start;
         }
 
-        /* Center: Photo */
         .founder-photo-center {
             grid-column: 2;
             position: sticky;
@@ -358,14 +359,12 @@
             font-family: var(--primary-font);
         }
 
-        /* Left: Barani */
         .founder-left {
             grid-column: 1;
             text-align: right;
             padding-top: 2rem;
         }
 
-        /* Right: Disha */
         .founder-right {
             grid-column: 3;
             text-align: left;
@@ -620,6 +619,7 @@
             height: 56px;
             object-fit: contain;
             flex-shrink: 0;
+            background: transparent;
         }
 
         .footer-logo-text {
@@ -746,23 +746,19 @@
                 grid-template-columns: 1fr 340px 1fr;
                 gap: 2.5rem;
             }
-
             .founder-photo-frame { height: 480px; }
         }
 
         @media (max-width: 900px) {
-            /* Stack founders: photo top, then side-by-side text */
             .founders-trio {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
-
             .founder-photo-center { grid-column: 1; position: static; max-width: 400px; margin: 0 auto; }
             .founder-left { grid-column: 1; text-align: left; }
             .founder-right { grid-column: 1; text-align: left; }
             .founder-left .founder-tags { justify-content: flex-start; }
             .founder-left .pull-quote-mini { border-left: 2px solid var(--accent); border-right: none; padding: 0.8rem 1rem; }
-
             .grid-2-col { grid-template-columns: 1fr; gap: 2.5rem; }
             .grid-3-col { grid-template-columns: 1fr; }
             .philosophy-grid { grid-template-columns: 1fr; }
@@ -823,11 +819,11 @@
         <span class="wa-text">Chat with Us</span>
     </a>
 
-    <!-- Header — matches index.html exactly -->
+    <!-- Header -->
     <header id="main-header">
         <nav class="container">
             <a href="index.html" class="logo">
-                <img src="assets/logo.png" alt="DB Events & Productions" class="logo-image">
+                <img src="assets/logo1.png" alt="DB Events & Productions" class="logo-image">
                 <div class="logo-text">Events &<br>Productions</div>
             </a>
             <ul class="nav-links" id="nav-links">
@@ -850,7 +846,7 @@
 
     <main>
 
-        <!-- ── HERO ── -->
+        <!-- HERO -->
         <section class="about-hero">
             <div class="container text-center about-hero-inner">
                 <span class="overline">Our Brand Story</span>
@@ -863,29 +859,29 @@
             </div>
         </section>
 
-        <!-- ── STATS STRIP ── -->
+        <!-- STATS STRIP -->
         <div class="stats-strip">
             <div class="stats-strip-inner">
                 <div class="stat-block">
-                    <span class="stat-number">150+</span>
+                    <span class="stat-number">400+</span>
                     <span class="stat-label">Luxury Weddings</span>
                 </div>
                 <div class="stat-block">
-                    <span class="stat-number">200+</span>
+                    <span class="stat-number">300+</span>
                     <span class="stat-label">Corporate Events</span>
                 </div>
                 <div class="stat-block">
-                    <span class="stat-number">10+</span>
+                    <span class="stat-number">35+</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
                 <div class="stat-block">
-                    <span class="stat-number">350+</span>
+                    <span class="stat-number">800+</span>
                     <span class="stat-label">Events Delivered</span>
                 </div>
             </div>
         </div>
 
-        <!-- ── STORY SECTION ── -->
+        <!-- STORY SECTION -->
         <section class="section-padding bg-light">
             <div class="container">
                 <div class="grid grid-2-col">
@@ -907,7 +903,7 @@
             </div>
         </section>
 
-        <!-- ── FOUNDERS: ONE PHOTO, TWO STORIES ── -->
+        <!-- FOUNDERS -->
         <section class="founders-section">
             <div class="container">
                 <div class="founders-header">
@@ -964,7 +960,7 @@
             </div>
         </section>
 
-        <!-- ── PHILOSOPHY ── -->
+        <!-- PHILOSOPHY -->
         <section class="section-padding bg-dark text-white">
             <div class="container text-center">
                 <span class="overline" style="color:rgba(255,255,255,0.4);">Our Philosophy</span>
@@ -991,7 +987,7 @@
             </div>
         </section>
 
-        <!-- ── VISION & MISSION ── -->
+        <!-- VISION & MISSION -->
         <section class="section-padding">
             <div class="container">
                 <div class="text-center" style="margin-bottom:4rem;">
@@ -1014,7 +1010,7 @@
             </div>
         </section>
 
-        <!-- ── CLOSING CTA ── -->
+        <!-- CLOSING CTA -->
         <section class="cta-section section-padding">
             <div class="container text-center">
                 <span class="overline" style="color:rgba(255,255,255,0.4);">Ready to Begin?</span>
@@ -1049,7 +1045,7 @@
 
     </main>
 
-    <!-- Footer — matches index.html exactly -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
@@ -1057,12 +1053,11 @@
                 <!-- Brand -->
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/logo.png" alt="DB Events & Productions" class="footer-logo-image">
+                        <img src="assets/logo1.png" alt="DB Events & Productions" class="footer-logo-image">
                         <div class="footer-logo-text">Events &<br>Productions</div>
                     </div>
                     <p>Coimbatore's premier event management studio. Delivering world-class wedding and corporate experiences across South India.</p>
                     <div class="footer-social-row">
-                        <!-- Instagram (inline SVG — always renders) -->
                         <a href="https://www.instagram.com/dbeventsandproductions/" target="_blank" class="social-btn" aria-label="Instagram">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1070,7 +1065,6 @@
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                             </svg>
                         </a>
-                        <!-- LinkedIn (inline SVG — always renders) -->
                         <a href="https://www.linkedin.com/company/db-eventsandproductions/" target="_blank" class="social-btn" aria-label="LinkedIn">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -1078,14 +1072,12 @@
                                 <circle cx="4" cy="4" r="2"/>
                             </svg>
                         </a>
-                        <!-- Mail -->
                         <a href="mailto:disha@dbeventsandproduction.com" class="social-btn" aria-label="Email">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
                         </a>
-                        <!-- WhatsApp -->
                         <a href="https://wa.me/919108075353" target="_blank" class="social-btn" aria-label="WhatsApp">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -1151,7 +1143,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
         const toggle = document.getElementById('mobile-toggle');
         const navLinks = document.getElementById('nav-links');
         const iconMenu = document.getElementById('icon-menu');
@@ -1163,7 +1154,6 @@
             iconClose.style.display = isOpen ? 'block' : 'none';
         });
 
-        // Smooth scroll for in-page links
         document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', e => {
                 const target = document.querySelector(link.getAttribute('href'));

@@ -1004,7 +1004,7 @@
     <header id="main-header" class="hero-mode">
         <nav class="container">
             <a href="#home" class="logo" aria-label="DB Events & Productions — Best Event Management Company in Coimbatore">
-                <img src="assets/logo.png" alt="DB Events & Productions Logo" class="logo-image" width="48" height="48">
+                <img src="assets/logo1.png" alt="DB Events & Productions Logo" class="logo-image" width="48" height="48">
                 <div class="logo-text">Events &<br>Productions</div>
             </a>
             <ul class="nav-links" id="nav-links">
@@ -1087,7 +1087,7 @@
                         <div class="accent-line"></div>
                         <h2 class="section-title">Beautifully Designed.<br>Powerfully Produced.</h2>
                         <p class="section-text">
-                            DB Events &amp; Productions is a premium event management company in Coimbatore specialising in luxury weddings, large-scale social celebrations and high-impact corporate events. From intimate moments to global leadership experiences, we design and execute events with creativity, precision and world-class professionalism.
+                            At DB Events &amp; Productions, we believe exceptional events are built on more than décor and logistics. They are built on vision, emotion, atmosphere and flawless execution. As a leading event management company in Coimbatore, we create immersive wedding and corporate experiences that feel elevated, seamless and unforgettable.
                         </p>
                     </div>
                     <div class="features-grid grid grid-2-col">
@@ -1248,15 +1248,15 @@
                     </div>
                     <div class="stats grid grid-3-col">
                         <div class="stat-item">
-                            <span class="stat-number">150+</span>
+                            <span class="stat-number">200+</span>
                             <span class="stat-label">Weddings in Coimbatore</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">200+</span>
+                            <span class="stat-number">400+</span>
                             <span class="stat-label">Corporate Events</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">10+</span>
+                            <span class="stat-number">35+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                     </div>
@@ -1343,7 +1343,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/logo.png" alt="DB Events & Productions — Event Management Company Coimbatore" class="footer-logo-image" width="56" height="56" loading="lazy">
+                        <img src="assets/logo1.png" alt="DB Events & Productions — Event Management Company Coimbatore" class="footer-logo-image" width="56" height="56" loading="lazy">
                         <div class="footer-logo-text">Events &amp;<br>Productions</div>
                     </div>
                     <p>Coimbatore's best event management and production company. Delivering world-class wedding and corporate experiences across South India.</p>
@@ -1421,53 +1421,65 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        lucide.createIcons();
-
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 60) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        const toggle = document.getElementById('mobile-toggle');
-        const navLinks = document.getElementById('nav-links');
-        toggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            const icon = toggle.querySelector('i');
-            if (navLinks.classList.contains('open')) {
-                icon.setAttribute('data-lucide', 'x');
-            } else {
-                icon.setAttribute('data-lucide', 'menu');
-            }
+        document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
-        });
 
-        function duplicateCarousel(id) {
-            const track = document.getElementById(id);
-            if (!track) return;
-            const origItems = Array.from(track.children);
-            origItems.forEach(item => {
-                const clone = item.cloneNode(true);
-                track.appendChild(clone);
-            });
-        }
+            const header = document.getElementById('main-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 60) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
 
-        duplicateCarousel('carousel-track');
-        duplicateCarousel('carousel-track-2');
+            const toggle = document.getElementById('mobile-toggle');
+            const navLinks = document.getElementById('nav-links');
+            
+            if (toggle && navLinks) {
+                toggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('open');
+                    const icon = toggle.querySelector('i');
+                    if (icon) {
+                        if (navLinks.classList.contains('open')) {
+                            icon.setAttribute('data-lucide', 'x');
+                        } else {
+                            icon.setAttribute('data-lucide', 'menu');
+                        }
+                        lucide.createIcons();
+                    }
+                });
+            }
 
-        document.getElementById('carousel-track-2').style.animationDirection = 'reverse';
+            function duplicateCarousel(id) {
+                const track = document.getElementById(id);
+                if (!track) return;
+                const origItems = Array.from(track.children);
+                origItems.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    track.appendChild(clone);
+                });
+            }
 
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', e => {
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    navLinks.classList.remove('open');
-                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-                }
+            duplicateCarousel('carousel-track');
+            duplicateCarousel('carousel-track-2');
+
+            const carouselTrack2 = document.getElementById('carousel-track-2');
+            if (carouselTrack2) {
+                carouselTrack2.style.animationDirection = 'reverse';
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', e => {
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target && navLinks) {
+                        e.preventDefault();
+                        navLinks.classList.remove('open');
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                    }
+                });
             });
         });
     </script>
