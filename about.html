@@ -92,12 +92,12 @@
         }
 
         .logo-image {
-            width: 48px;
-            height: 48px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
             flex-shrink: 0;
             background: transparent;
-            mix-blend-mode: multiply; /* Hides the white background on light surfaces */
+            mix-blend-mode: multiply;
         }
 
         .logo-text {
@@ -615,8 +615,8 @@
         }
 
         .footer-logo-image {
-            width: 56px;
-            height: 56px;
+            width: 130px;
+            height: 130px;
             object-fit: contain;
             flex-shrink: 0;
             background: transparent;
@@ -794,6 +794,8 @@
             .stats-strip-inner { gap: 3rem; }
             .contact-divider { display: none; }
             .contact-details-row { gap: 1.5rem; }
+            .logo-image { width: 80px; height: 80px; }
+            .footer-logo-image { width: 100px; height: 100px; }
         }
 
         @media (max-width: 480px) {
@@ -805,6 +807,8 @@
             .stats-strip-inner { gap: 2rem; }
             .founder-photo-frame { height: 380px; }
             .v-m-card { padding: 2rem 1.5rem; }
+            .logo-image { width: 70px; height: 70px; }
+            .footer-logo-image { width: 80px; height: 80px; }
         }
     </style>
 </head>
