@@ -237,7 +237,14 @@
 
         .nav-cta::after { display: none !important; }
 
-        .mobile-toggle { display: none; cursor: pointer; }
+        /* ── Mobile toggle: button with inline SVG (matches gallery.html) ── */
+        .mobile-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.3rem;
+        }
 
         /* ─── HERO ─── */
         .hero {
@@ -841,13 +848,12 @@
         /* ─── HEADER HERO MODE ─── */
         header.hero-mode .logo-text { color: rgba(255,255,255,0.85); }
         header.hero-mode .nav-links a { color: rgba(255,255,255,0.9); }
-        header.hero-mode .mobile-toggle { color: white; }
+        /* SVG stroke adapts to hero background */
+        header.hero-mode .mobile-toggle svg { stroke: white; }
 
         header.scrolled.hero-mode .logo-text { color: var(--text-main); }
         header.scrolled.hero-mode .nav-links a { color: var(--text-main); }
-        header.scrolled.hero-mode .mobile-toggle { color: var(--text-main); }
-
-        .mobile-toggle { display: none; cursor: pointer; color: var(--text-main); }
+        header.scrolled.hero-mode .mobile-toggle svg { stroke: var(--text-main); }
 
         /* ════════════════════════════════════════
            RESPONSIVE — 992px
@@ -882,7 +888,14 @@
                 z-index: 999;
             }
             .nav-links.open a { font-size: 1.2rem; }
-            .mobile-toggle { display: block; z-index: 1001; position: relative; }
+            /* ── Key fix: display flex so it's centred properly ── */
+            .mobile-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1001;
+                position: relative;
+            }
             .section-title { font-size: 2.2rem; }
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -901,7 +914,7 @@
                 mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
                 -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
             }
-            .logo-image { width: 240px; height: 240px; }
+            .logo-image { width: 80px; height: 80px; }
             .stats { grid-template-columns: 1fr !important; }
             .clients-header { gap: 1rem; }
             .hero-title { font-size: clamp(2.2rem, 7vw, 3.2rem); }
@@ -911,14 +924,13 @@
         }
 
         /* ════════════════════════════════════════
-           RESPONSIVE — 480px  ← ALL MOBILE FIXES
+           RESPONSIVE — 480px
         ════════════════════════════════════════ */
         @media (max-width: 480px) {
             .container { padding: 0 1.25rem; }
             .section-title { font-size: 1.8rem; }
             .section-padding { padding: 60px 0; }
 
-            /* FIX 1: Hero padding + center alignment */
             .hero {
                 padding-top: 70px;
                 align-items: center;
@@ -932,7 +944,6 @@
                 align-items: center;
             }
 
-            /* FIX 2: Hero subtitle — reduce letter-spacing so it doesn't overflow */
             .hero-subtitle {
                 font-size: 0.62rem;
                 letter-spacing: 0.1rem;
@@ -941,7 +952,6 @@
                 text-align: center;
             }
 
-            /* FIX 3: Hero title — smaller clamp, centered */
             .hero-title {
                 font-size: clamp(1.75rem, 7vw, 2.4rem);
                 line-height: 1.08;
@@ -949,7 +959,6 @@
                 text-align: center;
             }
 
-            /* FIX 4: Description — full width, tighter size, centered */
             .hero-description {
                 font-size: 0.88rem;
                 line-height: 1.65;
@@ -959,7 +968,6 @@
                 text-align: center;
             }
 
-            /* FIX 5: Buttons — full width, centered */
             .hero-actions {
                 flex-direction: column;
                 gap: 0.75rem;
@@ -975,7 +983,6 @@
                 letter-spacing: 0.1rem;
             }
 
-            /* Other 480px layout fixes */
             .btn { padding: 0.85rem 1.8rem; font-size: 0.75rem; }
             .split-item { height: 350px; padding: 1.5rem; }
             .split-content h3 { font-size: 1.5rem; }
@@ -986,6 +993,8 @@
             .footer-grid { gap: 1.5rem; }
             .carousel-label { font-size: 0.65rem; margin-bottom: 1.5rem; }
             .brand-logo-card { width: 110px; height: 60px; margin: 0 0.5rem; padding: 0.8rem 1rem; }
+            .logo-image { width: 60px; height: 60px; }
+            .footer-logo-image { width: 100px; height: 100px; }
         }
     </style>
 </head>
@@ -1014,9 +1023,18 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="nav-cta">Contact</a></li>
             </ul>
-            <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu">
-                <i data-lucide="menu"></i>
-            </div>
+            <!-- ── Inline SVG toggle (matches gallery.html exactly) ── -->
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -1363,7 +1381,10 @@
                             </svg>
                         </a>
                         <a href="mailto:disha@dbeventsandproduction.com" class="social-btn" aria-label="Email DB Events & Productions">
-                            <i data-lucide="mail" size="16"></i>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
                         </a>
                         <a href="https://wa.me/919108075353" target="_blank" rel="noopener" class="social-btn" aria-label="WhatsApp DB Events & Productions">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -1424,42 +1445,43 @@
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
 
+            // ── Header scroll ──
             const header = document.getElementById('main-header');
             if (header) {
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > 60) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
+                    header.classList.toggle('scrolled', window.scrollY > 60);
                 });
             }
 
-            const toggle = document.getElementById('mobile-toggle');
-            const navLinks = document.getElementById('nav-links');
-            
+            // ── Mobile toggle (matches gallery.html exactly) ──
+            const toggle    = document.getElementById('mobile-toggle');
+            const navLinks  = document.getElementById('nav-links');
+            const menuIcon  = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
             if (toggle && navLinks) {
                 toggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('open');
-                    const icon = toggle.querySelector('i');
-                    if (icon) {
-                        if (navLinks.classList.contains('open')) {
-                            icon.setAttribute('data-lucide', 'x');
-                        } else {
-                            icon.setAttribute('data-lucide', 'menu');
-                        }
-                        lucide.createIcons();
-                    }
+                    const isOpen = navLinks.classList.toggle('open');
+                    menuIcon.style.display  = isOpen ? 'none'  : 'block';
+                    closeIcon.style.display = isOpen ? 'block' : 'none';
+                });
+
+                // Close menu when any nav link is clicked
+                document.querySelectorAll('#nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('open');
+                        menuIcon.style.display  = 'block';
+                        closeIcon.style.display = 'none';
+                    });
                 });
             }
 
+            // ── Carousel duplication ──
             function duplicateCarousel(id) {
                 const track = document.getElementById(id);
                 if (!track) return;
-                const origItems = Array.from(track.children);
-                origItems.forEach(item => {
-                    const clone = item.cloneNode(true);
-                    track.appendChild(clone);
+                Array.from(track.children).forEach(item => {
+                    track.appendChild(item.cloneNode(true));
                 });
             }
 
@@ -1471,12 +1493,15 @@
                 carouselTrack2.style.animationDirection = 'reverse';
             }
 
+            // ── Smooth scroll for anchor links ──
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', e => {
                     const target = document.querySelector(link.getAttribute('href'));
-                    if (target && navLinks) {
+                    if (target) {
                         e.preventDefault();
-                        navLinks.classList.remove('open');
+                        if (navLinks) navLinks.classList.remove('open');
+                        if (menuIcon)  menuIcon.style.display  = 'block';
+                        if (closeIcon) closeIcon.style.display = 'none';
                         window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                     }
                 });
