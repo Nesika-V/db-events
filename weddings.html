@@ -163,14 +163,23 @@
         }
         .nav-cta::after { display: none !important; }
 
-        .mobile-toggle { display: none; cursor: pointer; color: var(--text-main); }
+        /* ── Mobile toggle button ── */
+        .mobile-toggle {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.3rem;
+        }
 
+        /* ── Hero-mode header colors ── */
         header.hero-mode .logo-text { color: rgba(255,255,255,0.85); }
         header.hero-mode .nav-links a { color: rgba(255,255,255,0.9); }
-        header.hero-mode .mobile-toggle { color: white; }
+        header.hero-mode .mobile-toggle svg { stroke: white; }
+
         header.scrolled.hero-mode .logo-text { color: var(--text-main); }
         header.scrolled.hero-mode .nav-links a { color: var(--text-main); }
-        header.scrolled.hero-mode .mobile-toggle { color: var(--text-main); }
+        header.scrolled.hero-mode .mobile-toggle svg { stroke: var(--text-main); }
 
         /* ─── HERO ─── */
         .hero {
@@ -781,8 +790,17 @@
                 gap: 2.5rem;
                 z-index: 999;
             }
-            .nav-links.open a { font-size: 1.2rem; }
-            .mobile-toggle { display: block; z-index: 1001; position: relative; }
+            /* Force dark text on white overlay — overrides hero-mode white */
+            .nav-links.open a { font-size: 1.2rem; color: var(--text-main) !important; }
+            .nav-links.open a.nav-cta { color: var(--text-white) !important; }
+
+            .mobile-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 1001;
+                position: relative;
+            }
             .section-title { font-size: 2.2rem; }
             .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
             .footer-bottom { flex-direction: column; text-align: center; }
@@ -833,9 +851,18 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="nav-cta">Contact</a></li>
             </ul>
-            <div class="mobile-toggle" id="mobile-toggle">
-                <i data-lucide="menu"></i>
-            </div>
+            <!-- Inline SVG toggle — matches gallery.html -->
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -986,7 +1013,7 @@
             </div>
         </section>
 
-        <!-- ─── WHY DB ─── */-->
+        <!-- ─── WHY DB ─── -->
         <section class="section-padding bg-light">
             <div class="container">
                 <div class="grid grid-2-col" style="align-items:center;gap:5rem;">
@@ -1131,7 +1158,6 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <!-- Brand -->
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <img src="assets/logo1.png" alt="DB Events & Productions" class="footer-logo-image">
@@ -1165,7 +1191,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
@@ -1178,7 +1203,6 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <div class="footer-contact-item">
@@ -1217,23 +1241,34 @@
     <script>
         lucide.createIcons();
 
-        // Header scroll behavior
+        // Header scroll
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             header.classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // Mobile menu
-        const toggle = document.getElementById('mobile-toggle');
-        const navLinks = document.getElementById('nav-links');
+        // Mobile toggle — matches gallery.html pattern exactly
+        const toggle    = document.getElementById('mobile-toggle');
+        const navLinks  = document.getElementById('nav-links');
+        const menuIcon  = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
         toggle.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            const icon = toggle.querySelector('i');
-            icon.setAttribute('data-lucide', navLinks.classList.contains('open') ? 'x' : 'menu');
-            lucide.createIcons();
+            const isOpen = navLinks.classList.toggle('open');
+            menuIcon.style.display  = isOpen ? 'none'  : 'block';
+            closeIcon.style.display = isOpen ? 'block' : 'none';
         });
 
-        // Duplicate carousel for seamless loop
+        // Close on nav link click
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuIcon.style.display  = 'block';
+                closeIcon.style.display = 'none';
+            });
+        });
+
+        // Carousel
         function duplicateCarousel(id) {
             const track = document.getElementById(id);
             if (!track) return;
@@ -1250,6 +1285,8 @@
                 if (target) {
                     e.preventDefault();
                     navLinks.classList.remove('open');
+                    menuIcon.style.display  = 'block';
+                    closeIcon.style.display = 'none';
                     window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
                 }
             });
