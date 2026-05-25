@@ -308,6 +308,14 @@
         }
 
         .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+        .hero-actions .btn {
+    padding: 1.1rem 2.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12rem;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+}
 
         .btn {
             display: inline-flex;
@@ -918,17 +926,26 @@
             .logo-image { width: 80px; height: 80px; }
             .stats { grid-template-columns: 1fr !important; }
             .clients-header { gap: 1rem; }
-            .hero-title { font-size: clamp(2.2rem, 7vw, 3.2rem); }
-            .hero-description { font-size: 0.95rem; }
-            .hero-actions { flex-direction: column; gap: 0.8rem; max-width: 360px; }
-            .hero-actions .btn { width: 100%; justify-content: center; }
-        }
+            
+    .hero-content {
+        text-align: left;
+        align-items: flex-start;
+    }
+    .hero-title,
+    .hero-description,
+    .hero-subtitle {
+        text-align: left;
+    }
+    .hero-actions {
+        align-items: flex-start;
+    }
+}
+        
 
         /* ════════════════════════════════════════
            RESPONSIVE — 480px
         ════════════════════════════════════════ */
         @media (max-width: 480px) {
-    
     .hero-content {
         padding: 1.5rem 0 3rem;
         max-width: 100%;
@@ -939,46 +956,43 @@
     }
 
     .hero-subtitle {
-        font-size: 0.62rem;
-        letter-spacing: 0.1rem;
-        margin-bottom: 0.75rem;
-        line-height: 1.5;
         text-align: left;
     }
 
     .hero-title {
-        font-size: clamp(1.75rem, 7vw, 2.4rem);
-        line-height: 1.08;
-        margin-bottom: 1rem;
+        font-size: clamp(2.5rem, 8vw, 4rem);
         text-align: left;
     }
 
     .hero-description {
-        font-size: 0.88rem;
-        line-height: 1.65;
-        max-width: 100%;
-        margin-bottom: 1.8rem;
-        opacity: 0.9;
         text-align: left;
     }
 
     .hero-actions {
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 1rem;
         width: 100%;
         align-items: flex-start;
     }
 
-            .hero-actions .btn {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-                padding: 1rem 1.5rem;
-                font-size: 0.72rem;
-                letter-spacing: 0.1rem;
-            }
+    .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.1rem;
+    }
+}
 
-            .btn { padding: 0.85rem 1.8rem; font-size: 0.75rem; }
+   
+
+            .btn { 
+    padding: 1rem 2rem; 
+    font-size: 0.75rem; 
+    letter-spacing: 0.1rem;
+    width: 100%;
+    justify-content: center;
+}
             .split-item { height: 350px; padding: 1.5rem; }
             .split-content h3 { font-size: 1.5rem; }
             .grid-6-col { grid-template-columns: repeat(2, 1fr); }
