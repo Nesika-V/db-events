@@ -181,6 +181,7 @@
             color: inherit;
         }
 
+        /* ── Matched to weddings.html: 100px × 100px ── */
         .logo-image {
             width: 100px;
             height: 100px;
@@ -237,7 +238,6 @@
 
         .nav-cta::after { display: none !important; }
 
-        /* ── Mobile toggle: button with inline SVG (matches gallery.html) ── */
         .mobile-toggle {
             display: none;
             cursor: pointer;
@@ -308,14 +308,6 @@
         }
 
         .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-        .hero-actions .btn {
-    padding: 1.1rem 2.2rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.12rem;
-    width: 100%;
-    justify-content: center;
-    box-sizing: border-box;
-}
 
         .btn {
             display: inline-flex;
@@ -365,15 +357,6 @@
             background: transparent;
             color: var(--bg-dark);
             border-color: var(--bg-dark);
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 2.5rem; right: 3rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.15rem;
-            opacity: 0.7;
-            color: white;
         }
 
         /* ─── BRAND LOGO CAROUSEL ─── */
@@ -534,8 +517,6 @@
         .link-arrow:hover { gap: 1rem; }
 
         /* ─── FOUNDERS ─── */
-        .founders-grid { margin: 4rem 0; }
-
         .founder-card { text-align: left; }
 
         .founder-image {
@@ -572,22 +553,6 @@
         }
 
         .founder-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
-
-        .founder-mission {
-            margin-top: 5rem;
-            max-width: 560px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .logo-db-small {
-            font-family: var(--heading-font);
-            font-size: 2rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 1.5rem;
-        }
 
         /* ─── SIGNATURE EXPERIENCES ─── */
         .experiences-grid { gap: 1px; background: #e8e8e8; }
@@ -694,12 +659,12 @@
         }
 
         .footer-logo-image {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    flex-shrink: 0;
-    background: transparent;
-}
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            flex-shrink: 0;
+            background: transparent;
+        }
 
         .footer-logo-text {
             font-family: var(--primary-font);
@@ -718,10 +683,7 @@
             margin-bottom: 2rem;
         }
 
-        .footer-social-row {
-            display: flex;
-            gap: 0.8rem;
-        }
+        .footer-social-row { display: flex; gap: 0.8rem; }
 
         .social-btn {
             width: 40px;
@@ -808,6 +770,15 @@
         .footer-cities span { opacity: 0.5; }
         .footer-city { opacity: 1 !important; }
 
+        /* ─── ACCENT LINE ─── */
+        .accent-line {
+            width: 48px;
+            height: 2px;
+            background: var(--accent);
+            margin-bottom: 2rem;
+        }
+        .text-center .accent-line { margin: 0 auto 2rem; }
+
         /* ─── WHATSAPP FAB ─── */
         .whatsapp-fab {
             position: fixed;
@@ -844,29 +815,16 @@
         .whatsapp-fab svg { width: 20px; height: 20px; flex-shrink: 0; }
         .whatsapp-fab .wa-text { letter-spacing: 0.02rem; }
 
-        /* ─── ACCENT ─── */
-        .accent-line {
-            width: 48px;
-            height: 2px;
-            background: var(--accent);
-            margin-bottom: 2rem;
-        }
-
-        .text-center .accent-line { margin: 0 auto 2rem; }
-
         /* ─── HEADER HERO MODE ─── */
         header.hero-mode .logo-text { color: rgba(255,255,255,0.85); }
         header.hero-mode .nav-links a { color: rgba(255,255,255,0.9); }
-        /* SVG stroke adapts to hero background */
         header.hero-mode .mobile-toggle svg { stroke: white; }
 
         header.scrolled.hero-mode .logo-text { color: var(--text-main); }
         header.scrolled.hero-mode .nav-links a { color: var(--text-main); }
         header.scrolled.hero-mode .mobile-toggle svg { stroke: var(--text-main); }
 
-        /* ════════════════════════════════════════
-           RESPONSIVE — 992px
-        ════════════════════════════════════════ */
+        /* ─── RESPONSIVE 992px ─── */
         @media (max-width: 992px) {
             .grid-4-col { grid-template-columns: repeat(2, 1fr); }
             .grid-6-col { grid-template-columns: repeat(3, 1fr); }
@@ -877,9 +835,7 @@
             .brand-logo-card { width: 140px; height: 70px; }
         }
 
-        /* ════════════════════════════════════════
-           RESPONSIVE — 768px
-        ════════════════════════════════════════ */
+        /* ─── RESPONSIVE 768px ─── */
         @media (max-width: 768px) {
             .grid-2-col { grid-template-columns: 1fr; }
             .grid-3-col { grid-template-columns: 1fr; }
@@ -898,7 +854,6 @@
             }
             .nav-links.open a { font-size: 1.2rem; color: var(--text-main) !important; }
             .nav-links.open a.nav-cta { color: var(--text-white) !important; }
-            /* ── Key fix: display flex so it's centred properly ── */
             .mobile-toggle {
                 display: flex;
                 align-items: center;
@@ -920,80 +875,41 @@
             .split-item { padding: 2rem; }
             .split-content h3 { font-size: 1.8rem; }
             .brand-logo-card { width: 130px; height: 65px; margin: 0 0.8rem; }
-            .carousel-track-wrapper {
-                mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-                -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-            }
             .logo-image { width: 80px; height: 80px; }
             .stats { grid-template-columns: 1fr !important; }
             .clients-header { gap: 1rem; }
-            
-    .hero-content {
-        text-align: left;
-        align-items: flex-start;
-    }
-    .hero-title,
-    .hero-description,
-    .hero-subtitle {
-        text-align: left;
-    }
-    .hero-actions {
-        align-items: flex-start;
-    }
-}
-        
+            .hero-content { text-align: left; align-items: flex-start; }
+            .hero-title, .hero-description, .hero-subtitle { text-align: left; }
+            .hero-actions { align-items: flex-start; }
+        }
 
-        /* ════════════════════════════════════════
-           RESPONSIVE — 480px
-        ════════════════════════════════════════ */
+        /* ─── RESPONSIVE 480px ─── */
         @media (max-width: 480px) {
-    .hero-content {
-        padding: 1.5rem 0 3rem;
-        max-width: 100%;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hero-subtitle {
-        text-align: left;
-    }
-
-    .hero-title {
-        font-size: clamp(2.5rem, 8vw, 4rem);
-        text-align: left;
-    }
-
-    .hero-description {
-        text-align: left;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        gap: 1rem;
-        width: 100%;
-        align-items: flex-start;
-    }
-
-    .btn {
-        width: 100%;
-        justify-content: center;
-        padding: 1rem 1.5rem;
-        font-size: 0.75rem;
-        letter-spacing: 0.1rem;
-    }
-}
-
-   
-
-            .btn { 
-    padding: 1rem 2rem; 
-    font-size: 0.75rem; 
-    letter-spacing: 0.1rem;
-    width: 100%;
-    justify-content: center;
-}
+            .container { padding: 0 1.5rem; }
+            .hero-content {
+                padding: 1.5rem 0 3rem;
+                max-width: 100%;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-subtitle { text-align: left; }
+            .hero-title { font-size: clamp(2.5rem, 8vw, 4rem); text-align: left; }
+            .hero-description { text-align: left; }
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                align-items: flex-start;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem 1.5rem;
+                font-size: 0.75rem;
+                letter-spacing: 0.1rem;
+            }
             .split-item { height: 350px; padding: 1.5rem; }
             .split-content h3 { font-size: 1.5rem; }
             .grid-6-col { grid-template-columns: repeat(2, 1fr); }
@@ -1003,9 +919,10 @@
             .footer-grid { gap: 1.5rem; }
             .carousel-label { font-size: 0.65rem; margin-bottom: 1.5rem; }
             .brand-logo-card { width: 110px; height: 60px; margin: 0 0.5rem; padding: 0.8rem 1rem; }
-            .logo-image { width: 60px; height: 60px; }
+            .logo-image { width: 70px; height: 70px; }
             .footer-logo-image { width: 140px; height: 140px; }
-        
+            .section-padding { padding: 60px 0; }
+        }
     </style>
 </head>
 <body>
@@ -1023,8 +940,7 @@
     <header id="main-header" class="hero-mode">
         <nav class="container">
             <a href="#home" class="logo" aria-label="DB Events & Productions — Best Event Management Company in Coimbatore">
-                <img src="assets/logo1.png" alt="DB Events & Productions Logo" class="logo-image" width="130" height="130">
-                
+                <img src="assets/logo1.png" alt="DB Events & Productions Logo" class="logo-image" width="100" height="100">
             </a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="corporate.html">Corporate Events</a></li>
@@ -1033,7 +949,6 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="nav-cta">Contact</a></li>
             </ul>
-            <!-- ── Inline SVG toggle (matches gallery.html exactly) ── -->
             <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
                 <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="6" x2="21" y2="6"/>
@@ -1063,7 +978,7 @@
             </div>
         </section>
 
-        <!-- Brand Logo Carousel TOP -->
+        <!-- Brand Logo Carousel -->
         <div class="brand-carousel-section">
             <p class="carousel-label">Trusted by India's Leading Brands & Families</p>
             <div class="carousel-track-wrapper">
@@ -1107,10 +1022,10 @@
         </div>
 
         <!-- WHO WE ARE -->
-        <section id="about" class="who-we-are section-padding" aria-label="About DB Events & Productions">
+        <section id="about" class="section-padding" aria-label="About DB Events & Productions">
             <div class="container">
                 <div class="grid grid-2-col" style="align-items:start; gap:5rem;">
-                    <div class="section-intro">
+                    <div>
                         <p class="overline">Who We Are</p>
                         <div class="accent-line"></div>
                         <h2 class="section-title">Beautifully Designed.<br>Powerfully Produced.</h2>
@@ -1167,15 +1082,15 @@
         </section>
 
         <!-- FOUNDERS -->
-        <section id="founders" class="founders section-padding" aria-label="Meet the Founders of DB Events & Productions">
+        <section id="founders" class="section-padding" aria-label="Meet the Founders of DB Events & Productions">
             <div class="container text-center">
                 <p class="overline">Meet the Founders</p>
                 <div class="accent-line"></div>
                 <h2 class="section-title">The People Behind the Experiences</h2>
-                <div class="founders-grid grid grid-2-col" style="margin-top:4rem;">
+                <div class="grid grid-2-col" style="margin-top:4rem;">
                     <div class="founder-card">
                         <div class="founder-image">
-                            <img src="assets/founders.png" alt="Disha Dhingra & Barani Chander — Co-founders of DB Events & Productions, best event management company in Coimbatore" loading="lazy">
+                            <img src="assets/founders.png" alt="Disha Dhingra & Barani Chander — Co-founders of DB Events & Productions" loading="lazy">
                         </div>
                         <div class="founder-info" style="text-align:left;">
                             <h3>Disha Dhingra &amp; Barani Chander</h3>
@@ -1260,7 +1175,6 @@
                     <div class="gallery-item"><img src="assets/por6.jpg" alt="Corporate event management Coimbatore — DB Events" loading="lazy"></div>
                     <div class="gallery-item"><img src="assets/por8.jpg" alt="Event production Coimbatore — DB Events & Productions" loading="lazy"></div>
                     <div class="gallery-item"><img src="assets/por23.png" alt="Wedding planning Coimbatore — DB Events & Productions" loading="lazy"></div>
-    
                 </div>
                 <a href="gallery.html" class="btn btn-outline btn-dark">View Full Gallery</a>
             </div>
@@ -1372,7 +1286,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/logo1.png" alt="DB Events & Productions — Event Management Company Coimbatore" class="footer-logo-image" width="56" height="56" loading="lazy">
+                        <img src="assets/logo1.png" alt="DB Events & Productions — Event Management Company Coimbatore" class="footer-logo-image" loading="lazy">
                         <div class="footer-logo-text">DB Events &amp;<br>Productions</div>
                     </div>
                     <p>Coimbatore's best event management and production company. Delivering world-class wedding and corporate experiences across South India.</p>
@@ -1431,7 +1345,7 @@
                         <div class="icon"><i data-lucide="map-pin" size="15"></i></div>
                         <p>Coimbatore, Tamil Nadu, India</p>
                     </div>
-                    <a href="https://wa.me/919108075353" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;transition:var(--transition);" aria-label="WhatsApp DB Events & Productions">
+                    <a href="https://wa.me/919108075353" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;background:#25D366;color:white;padding:0.7rem 1.4rem;border-radius:4px;text-decoration:none;font-size:0.8rem;font-weight:600;margin-top:1rem;letter-spacing:0.05rem;" aria-label="WhatsApp DB Events & Productions">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.765.465 3.424 1.277 4.865L2 22l5.29-1.248A10.002 10.002 0 0012.004 22C17.53 22 22 17.523 22 12.004 22 6.477 17.53 2 12.004 2zm0 18.214a8.21 8.21 0 01-4.277-1.197l-.306-.183-3.14.74.795-2.906-.199-.315A8.212 8.212 0 013.789 12.004c0-4.537 3.693-8.23 8.215-8.23 4.521 0 8.214 3.693 8.214 8.23 0 4.536-3.693 8.21-8.214 8.21z"/></svg>
                         WhatsApp Us
                     </a>
@@ -1456,7 +1370,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
 
-            // ── Header scroll ──
             const header = document.getElementById('main-header');
             if (header) {
                 window.addEventListener('scroll', () => {
@@ -1464,7 +1377,6 @@
                 });
             }
 
-            // ── Mobile toggle (matches gallery.html exactly) ──
             const toggle    = document.getElementById('mobile-toggle');
             const navLinks  = document.getElementById('nav-links');
             const menuIcon  = document.getElementById('menu-icon');
@@ -1477,7 +1389,6 @@
                     closeIcon.style.display = isOpen ? 'block' : 'none';
                 });
 
-                // Close menu when any nav link is clicked
                 document.querySelectorAll('#nav-links a').forEach(link => {
                     link.addEventListener('click', () => {
                         navLinks.classList.remove('open');
@@ -1487,7 +1398,6 @@
                 });
             }
 
-            // ── Carousel duplication ──
             function duplicateCarousel(id) {
                 const track = document.getElementById(id);
                 if (!track) return;
@@ -1504,7 +1414,6 @@
                 carouselTrack2.style.animationDirection = 'reverse';
             }
 
-            // ── Smooth scroll for anchor links ──
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', e => {
                     const target = document.querySelector(link.getAttribute('href'));
