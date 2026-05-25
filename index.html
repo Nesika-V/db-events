@@ -928,53 +928,47 @@
            RESPONSIVE — 480px
         ════════════════════════════════════════ */
         @media (max-width: 480px) {
-            .container { padding: 0 1.25rem; }
-            .section-title { font-size: 1.8rem; }
-            .section-padding { padding: 60px 0; }
+    ...
+    .hero-content {
+        padding: 1.5rem 0 3rem;
+        max-width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-            .hero {
-                padding-top: 70px;
-                align-items: center;
-            }
-            .hero-content {
-                padding: 1.5rem 0 3rem;
-                max-width: 100%;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+    .hero-subtitle {
+        font-size: 0.62rem;
+        letter-spacing: 0.1rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+        text-align: left;
+    }
 
-            .hero-subtitle {
-                font-size: 0.62rem;
-                letter-spacing: 0.1rem;
-                margin-bottom: 0.75rem;
-                line-height: 1.5;
-                text-align: center;
-            }
+    .hero-title {
+        font-size: clamp(1.75rem, 7vw, 2.4rem);
+        line-height: 1.08;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
 
-            .hero-title {
-                font-size: clamp(1.75rem, 7vw, 2.4rem);
-                line-height: 1.08;
-                margin-bottom: 1rem;
-                text-align: center;
-            }
+    .hero-description {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        max-width: 100%;
+        margin-bottom: 1.8rem;
+        opacity: 0.9;
+        text-align: left;
+    }
 
-            .hero-description {
-                font-size: 0.88rem;
-                line-height: 1.65;
-                max-width: 100%;
-                margin-bottom: 1.8rem;
-                opacity: 0.9;
-                text-align: center;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                gap: 0.75rem;
-                width: 100%;
-                align-items: center;
-            }
+    .hero-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+    
             .hero-actions .btn {
                 width: 100%;
                 justify-content: center;
