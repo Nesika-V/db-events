@@ -285,7 +285,6 @@
             object-position: center;
         }
 
-        .story-content { }
         .story-content p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.2rem; }
 
         .pull-quote {
@@ -300,7 +299,7 @@
             background: var(--bg-light);
         }
 
-        /* ─── FOUNDERS: CENTER PHOTO LAYOUT ─── */
+        /* ─── FOUNDERS ─── */
         .founders-section {
             padding: 100px 0;
             background: var(--bg-white);
@@ -371,10 +370,7 @@
             padding-top: 2rem;
         }
 
-        .founder-side h2 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
+        .founder-side h2 { font-size: 2.2rem; margin-bottom: 0.5rem; }
 
         .founder-side-subtitle {
             font-size: 0.8rem;
@@ -463,17 +459,8 @@
             display: block;
         }
 
-        .philosophy-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-white);
-        }
-
-        .philosophy-card p {
-            font-size: 0.88rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.7;
-        }
+        .philosophy-card h4 { font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--text-white); }
+        .philosophy-card p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
 
         .large-statement {
             font-family: var(--heading-font);
@@ -492,16 +479,81 @@
             border-top: 3px solid var(--accent);
         }
 
-        .v-m-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1.2rem;
+        .v-m-card h3 { font-size: 1.6rem; margin-bottom: 1.2rem; }
+        .v-m-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
+
+        /* ─── BRAND CAROUSEL ─── */
+        /* ─── BRAND CAROUSEL ─── */
+.brand-carousel-section {
+    padding: 60px 0;
+    background: var(--bg-dark);
+    overflow: hidden;
+    border-top: none;
+    border-bottom: none;
+}
+
+        .carousel-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.22rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    font-family: var(--primary-font);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+        .carousel-track-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
         }
 
-        .v-m-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.8;
+        .carousel-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: scrollLeft 28s linear infinite;
         }
+
+        .carousel-track:hover { animation-play-state: paused; }
+
+        @keyframes scrollLeft {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .brand-logo-card {
+    flex-shrink: 0;
+    width: 160px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    background: #ffffff;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    transition: var(--transition);
+    padding: 1rem 1.5rem;
+}
+
+        .brand-logo-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .brand-logo-card img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            filter: grayscale(0.15);
+            transition: var(--transition);
+        }
+
+        .brand-logo-card:hover img { filter: grayscale(0); }
 
         /* ─── CLOSING CTA ─── */
         .cta-section {
@@ -552,10 +604,7 @@
             text-transform: uppercase;
         }
 
-        .contact-divider {
-            width: 1px;
-            background: rgba(255,255,255,0.1);
-        }
+        .contact-divider { width: 1px; background: rgba(255,255,255,0.1); }
 
         /* ─── WHATSAPP FAB ─── */
         .whatsapp-fab {
@@ -740,20 +789,14 @@
         .footer-cities span { opacity: 0.5; }
         .footer-city { opacity: 1 !important; }
 
-        /* ─── MOBILE ─── */
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 1100px) {
-            .founders-trio {
-                grid-template-columns: 1fr 340px 1fr;
-                gap: 2.5rem;
-            }
+            .founders-trio { grid-template-columns: 1fr 340px 1fr; gap: 2.5rem; }
             .founder-photo-frame { height: 480px; }
         }
 
         @media (max-width: 900px) {
-            .founders-trio {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
+            .founders-trio { grid-template-columns: 1fr; gap: 3rem; }
             .founder-photo-center { grid-column: 1; position: static; max-width: 400px; margin: 0 auto; }
             .founder-left { grid-column: 1; text-align: left; }
             .founder-right { grid-column: 1; text-align: left; }
@@ -796,6 +839,7 @@
             .contact-details-row { gap: 1.5rem; }
             .logo-image { width: 80px; height: 80px; }
             .footer-logo-image { width: 100px; height: 100px; }
+            .brand-logo-card { width: 130px; height: 65px; margin: 0 0.8rem; }
         }
 
         @media (max-width: 480px) {
@@ -809,6 +853,7 @@
             .v-m-card { padding: 2rem 1.5rem; }
             .logo-image { width: 70px; height: 70px; }
             .footer-logo-image { width: 80px; height: 80px; }
+            .brand-logo-card { width: 110px; height: 60px; margin: 0 0.5rem; padding: 0.8rem 1rem; }
         }
     </style>
 </head>
@@ -1014,6 +1059,41 @@
             </div>
         </section>
 
+        <!-- ─── TRUSTED BRANDS CAROUSEL ─── -->
+        <div class="brand-carousel-section">
+            <p class="carousel-label">Trusted by India's Leading Brands &amp; Families</p>
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track" id="about-carousel-track">
+                    <div class="brand-logo-card"><img src="assets/brands/google.png" alt="Google" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/infosys.png" alt="Infosys" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/accenture.png" alt="Accenture" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/aws.png" alt="AWS" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ibm.png" alt="IBM" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/wipro.png" alt="Wipro" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/meta.png" alt="Meta" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/lt.png" alt="L&T" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/cii.png" alt="CII" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/icai.png" alt="ICAI" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/flipkart.png" alt="Flipkart" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/redbull.png" alt="Red Bull" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ferrari.png" alt="Ferrari" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ford.png" alt="Ford" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/logitech.png" alt="Logitech" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/startuptn.png" alt="StartupTN" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/yotta.png" alt="Yotta" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/tv9.png" alt="TV9" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/aprilia.png" alt="Aprilia" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ceat.png" alt="CEAT" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/ktm.png" alt="KTM" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/mg.png" alt="MG" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/sagility.png" alt="Sagility" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/sun.png" alt="Sun" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/wattnexx.png" alt="Wattnexx" loading="lazy"></div>
+                    <div class="brand-logo-card"><img src="assets/brands/zuari.png" alt="Zuari" loading="lazy"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- CLOSING CTA -->
         <section class="cta-section section-padding">
             <div class="container text-center">
@@ -1170,6 +1250,14 @@
                 }
             });
         });
+
+        // Duplicate carousel for seamless infinite loop
+        const carouselTrack = document.getElementById('about-carousel-track');
+        if (carouselTrack) {
+            Array.from(carouselTrack.children).forEach(item => {
+                carouselTrack.appendChild(item.cloneNode(true));
+            });
+        }
     </script>
 
 </body>
