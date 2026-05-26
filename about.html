@@ -33,6 +33,7 @@
             line-height: 1.6;
             background: var(--bg-white);
             overflow-x: hidden;
+            font-size: 18px;
         }
 
         /* ─── LAYOUT ─── */
@@ -275,14 +276,13 @@
         .story-image {
             border-radius: 4px;
             overflow: hidden;
-            height: 520px;
         }
 
         .story-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
 
         .story-content p { font-size: 1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.2rem; }
@@ -434,6 +434,50 @@
             padding: 0.8rem 1rem;
         }
 
+        /* ─── FOUNDER BULLET LIST ─── */
+        .founder-bullet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 1rem 1.2rem;
+            background: var(--bg-light);
+            border-radius: 2px;
+        }
+
+        .founder-bullet-list span {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .founder-left .founder-bullet-list {
+            border-right: 2px solid var(--accent);
+            text-align: right;
+        }
+
+        .founder-right .founder-bullet-list {
+            border-left: 2px solid var(--accent);
+            text-align: left;
+        }
+
+        /* ─── GLOBAL FIRST PHOTO SECTION ─── */
+        .global-first-image {
+            border-radius: 6px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 500px;
+            background: var(--bg-light);
+            aspect-ratio: 3/4;
+        }
+
+        .global-first-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
         /* ─── PHILOSOPHY ─── */
         .philosophy-grid {
             display: grid;
@@ -483,25 +527,22 @@
         .v-m-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }
 
         /* ─── BRAND CAROUSEL ─── */
-        /* ─── BRAND CAROUSEL ─── */
-.brand-carousel-section {
-    padding: 60px 0;
-    background: var(--bg-dark);
-    overflow: hidden;
-    border-top: none;
-    border-bottom: none;
-}
+        .brand-carousel-section {
+            padding: 60px 0;
+            background: var(--bg-dark);
+            overflow: hidden;
+        }
 
         .carousel-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.22rem;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    font-family: var(--primary-font);
-    font-weight: 500;
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
+            font-size: 0.83rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            font-family: var(--primary-font);
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
 
         .carousel-track-wrapper {
             overflow: hidden;
@@ -525,19 +566,19 @@
         }
 
         .brand-logo-card {
-    flex-shrink: 0;
-    width: 160px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 1rem;
-    background: #ffffff;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    transition: var(--transition);
-    padding: 1rem 1.5rem;
-}
+            flex-shrink: 0;
+            width: 160px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 1rem;
+            background: #ffffff;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            transition: var(--transition);
+            padding: 1rem 1.5rem;
+        }
 
         .brand-logo-card:hover {
             box-shadow: 0 8px 32px rgba(0,0,0,0.08);
@@ -791,6 +832,13 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1100px) {
+            .founders-trio { grid-template-columns: 1fr; gap: 3rem; }
+            .founder-photo-center { grid-column: 1; }
+            .founder-left { grid-column: 1; }
+            .founder-photo-frame { height: 480px; }
+        }
+
+        @media (max-width: 1100px) {
             .founders-trio { grid-template-columns: 1fr 340px 1fr; gap: 2.5rem; }
             .founder-photo-frame { height: 480px; }
         }
@@ -802,11 +850,12 @@
             .founder-right { grid-column: 1; text-align: left; }
             .founder-left .founder-tags { justify-content: flex-start; }
             .founder-left .pull-quote-mini { border-left: 2px solid var(--accent); border-right: none; padding: 0.8rem 1rem; }
+            .founder-left .founder-bullet-list { border-left: 2px solid var(--accent); border-right: none; text-align: left; }
             .grid-2-col { grid-template-columns: 1fr; gap: 2.5rem; }
             .grid-3-col { grid-template-columns: 1fr; }
             .philosophy-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-            .story-image { height: 320px; }
+            .global-first-image { min-height: 400px; aspect-ratio: 3/4; }
         }
 
         @media (max-width: 768px) {
@@ -840,6 +889,7 @@
             .logo-image { width: 80px; height: 80px; }
             .footer-logo-image { width: 100px; height: 100px; }
             .brand-logo-card { width: 130px; height: 65px; margin: 0 0.8rem; }
+            .global-first-image { min-height: 350px; aspect-ratio: 3/4; }
         }
 
         @media (max-width: 480px) {
@@ -854,6 +904,7 @@
             .logo-image { width: 70px; height: 70px; }
             .footer-logo-image { width: 80px; height: 80px; }
             .brand-logo-card { width: 110px; height: 60px; margin: 0 0.5rem; padding: 0.8rem 1rem; }
+            .global-first-image { min-height: 300px; aspect-ratio: 3/4; }
         }
     </style>
 </head>
@@ -873,7 +924,7 @@
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="assets/logo1.png" alt="DB Events & Productions" class="logo-image">
-                <div class="logo-text">Events &<br>Productions</div>
+                
             </a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="corporate.html">Corporate Events</a></li>
@@ -935,7 +986,7 @@
             <div class="container">
                 <div class="grid grid-2-col">
                     <div class="story-image">
-                        <img src="assets/corporate.png" alt="2010 Commonwealth Games Era — Where It All Began">
+                        <img src="assets/disha.jpg" alt="2010 Commonwealth Games Era — Where It All Began">
                     </div>
                     <div class="story-content">
                         <span class="overline">Where It All Began</span>
@@ -952,7 +1003,7 @@
             </div>
         </section>
 
-        <!-- FOUNDERS -->
+        <!-- FOUNDERS - NEW EQUAL PARTITION LAYOUT -->
         <section class="founders-section">
             <div class="container">
                 <div class="founders-header">
@@ -966,15 +1017,29 @@
                     <!-- LEFT: Barani Chander -->
                     <div class="founder-side founder-left">
                         <h2>Barani Chander</h2>
-                        <span class="founder-side-subtitle">The Mind Behind The Execution</span>
+                        <span class="founder-side-subtitle">The Mind Behind The Execution.</span>
                         <p>With over two decades of experience in the events industry, Barani Chander brings the rare ability to see both the big picture and the smallest invisible detail — often before anyone else does.</p>
-                        <p>His strength lies not just in execution, but in anticipation. The flow of guests. Movement backstage. Technical transitions. Artist timings. Audience energy. Operational risks most people never notice.</p>
+                        <p>His strength lies not just in execution, but in anticipation.</p>
+                        <div class="founder-bullet-list">
+                            <span>The flow of guests.</span>
+                            <span>Movement backstage.</span>
+                            <span>Technical transitions.</span>
+                            <span>Artist timings.</span>
+                            <span>Audience energy.</span>
+                            <span>Operational risks most people never notice.</span>
+                        </div>
+                        <p>Barani approaches every event with the mindset that flawless experiences are built long before the event day begins.</p>
+                        <div class="pull-quote-mini">
+                            "Behind every seamless celebration is a hundred invisible decisions made right."
+                        </div>
+                        <p>Having worked on some of the country's most celebrated productions including the International Indian Film Academy Awards, Indian Premier League, the Afro-Asian Games and multiple large-scale experiential productions through his years with Wizcraft International Entertainment, Barani brings global-scale production thinking into every experience DB creates.</p>
+                        <p>Rooted deeply in Coimbatore yet shaped by national and international event environments, he bridges global professionalism with strong local relationships and execution ecosystems.</p>
                         <div class="founder-tags">
                             <span class="founder-tag">Calm under pressure</span>
                             <span class="founder-tag">Structured</span>
-                            <span class="founder-tag">Detail-driven</span>
+                            <span class="founder-tag">Relentless about detail</span>
                         </div>
-                        <p>Having worked on some of the country's most celebrated productions — the International Indian Film Academy Awards, Indian Premier League and large-scale experiential productions with Wizcraft International — Barani brings global production thinking into every DB event.</p>
+                        <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic;">For Barani, excellence is never accidental.</p>
                     </div>
 
                     <!-- CENTER: Single Shared Photo -->
@@ -991,20 +1056,65 @@
                     <!-- RIGHT: Disha Dhingra -->
                     <div class="founder-side founder-right">
                         <h2>Disha Dhingra</h2>
-                        <span class="founder-side-subtitle">The Heart & Creative Spirit</span>
-                        <p>Originally a Delhi Punjabi girl with an instinctive love for people, storytelling and aesthetics, Disha found her calling in creating experiences that feel deeply personal, emotionally unforgettable and beautifully designed.</p>
-                        <p>Her journey began in communication, campaigns and brand experiences — working with organizations like McCann Erickson and HT Media — where she developed a strong understanding of visual storytelling and experiential communication.</p>
+                        <span class="founder-side-subtitle">The Heart &amp; Creative Spirit Behind The Experience.</span>
+
+                        <p>Originally a Delhi Punjabi girl with an instinctive, unshakeable love for people, storytelling and the beauty of human celebration, Disha Dhingra found her truest calling in creating experiences that feel deeply personal, emotionally unforgettable and beautifully designed — from the very first conversation to the very last moment of the night.</p>
+
+                        <p>Long before weddings, her journey began in the world of communication, campaigns and brand experiences. Working with organizations like McCann Erickson and HT Media, she built a sharp understanding of audience psychology, visual storytelling, brand perception and experiential communication — the ability to craft something that not only looks beautiful, but makes people feel something.</p>
                         <div class="pull-quote-mini">
-                            "She carries the celebration emotionally alongside every family she works with."
+                            "For Disha, weddings are not just events to be managed. They are emotions to be experienced — and she experiences every single one of them alongside the families she works with."
                         </div>
-                        <p>But what truly sets Disha apart is how personally she becomes involved in every celebration she leads. Families often end up treating her like their own daughter — because her involvement goes far beyond coordination.</p>
+
+                        <div class="founder-bullet-list">
+                            <span>The warmth of a welcome that makes guests feel seen the moment they arrive.</span>
+                            <span>The flow of a celebration that feels effortless but was crafted to the minute.</span>
+                            <span>The feeling a space creates before a single word is spoken.</span>
+                            <span>The little details guests carry home in their memories, years later.</span>
+                            <span style="font-style:italic; color:var(--text-main);">None of it happens by accident. Everything is intentional.</span>
+                        </div>
+
+                        <p><strong style="color:var(--text-main); font-weight:600;">She doesn't just plan weddings. She becomes part of the family.</strong></p>
+
+                        <p>She is the person who notices when the mother of the bride is quietly overwhelmed — and steps in before anyone else does. The person ensuring the bride feels fully present in her own celebration, not consumed by logistics or anxiety. The person holding beauty, emotion and operational precision in the same hands, simultaneously, all day long.</p>
+
+                        <p>Families often end up treating her like their own daughter — not because it's her job, but because the depth of her care makes it impossible to feel otherwise. Her involvement goes far beyond event coordination. It is emotional partnership.</p>
+
                         <div class="founder-tags">
                             <span class="founder-tag">Creative Vision</span>
+                            <span class="founder-tag">Emotional Depth</span>
                             <span class="founder-tag">Empathy</span>
                             <span class="founder-tag">Storytelling</span>
+                            <span class="founder-tag">Aesthetic Mastery</span>
                         </div>
+
+                        <p style="font-size:0.88rem; color:var(--text-muted); font-style:italic; margin-top:0.5rem;">Because to her, the most meaningful celebrations are not the grandest ones — they are the ones where every person in the room feels completely seen, deeply celebrated and entirely present in the moment.</p>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- LANDMARK GLOBAL MILESTONE - EQUAL PARTITION WITH PHOTO -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <div class="grid grid-2-col" style="align-items:center; gap:5rem;">
+                    <div>
+                        <span class="overline">A Global First</span>
+                        <div class="accent-line"></div>
+                        <h2 class="section-title">From Coimbatore To One Of The World's Most Iconic Stages.</h2>
+                        <p style="font-size:1rem; color:var(--text-muted); line-height:1.8; margin-bottom:1.2rem;">
+                            Among the defining milestones in the journey of DB Events &amp; Productions was partnering on a landmark celebration by Elite Magazine at the iconic Statue of Liberty — recognized as the first Indian-hosted event to take place at this globally historic venue.
+                        </p>
+                        <p style="font-size:1rem; color:var(--text-muted); line-height:1.8; margin-bottom:1.2rem;">
+                            For a premium event management company from Coimbatore, being part of an experience of such international scale and significance reflected far more than achievement. It represented the global standards of event production, creative execution and operational excellence that continue to shape every experience curated by DB Events &amp; Productions today.
+                        </p>
+                        <div class="pull-quote">
+                            "This milestone continues to inspire the vision behind DB — bringing world-class experiences, global exposure and elevated execution to Coimbatore with the same passion, precision and attention to detail seen on some of the world's biggest stages."
+                        </div>
+                    </div>
+                    <div class="global-first-image">
+                        <img src="assets/barani.jpeg" alt="DB Events at Statue of Liberty, New York — First Indian Event">
+                    </div>
                 </div>
             </div>
         </section>
@@ -1059,7 +1169,7 @@
             </div>
         </section>
 
-        <!-- ─── TRUSTED BRANDS CAROUSEL ─── -->
+        <!-- TRUSTED BRANDS CAROUSEL -->
         <div class="brand-carousel-section">
             <p class="carousel-label">Trusted by India's Leading Brands &amp; Families</p>
             <div class="carousel-track-wrapper">
@@ -1138,7 +1248,7 @@
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <img src="assets/logo1.png" alt="DB Events & Productions" class="footer-logo-image">
-                        <div class="footer-logo-text">Events &<br>Productions</div>
+                        
                     </div>
                     <p>Coimbatore's premier event management studio. Delivering world-class wedding and corporate experiences across South India.</p>
                     <div class="footer-social-row">
@@ -1214,7 +1324,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2024 DB Events & Productions. All Rights Reserved.</p>
+                <p>© 2025 DB Events & Productions. All Rights Reserved.</p>
                 <div class="footer-cities">
                     <span class="footer-city">Coimbatore</span>
                     <span>·</span>

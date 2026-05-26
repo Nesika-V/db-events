@@ -301,7 +301,7 @@
         }
 
         .carousel-label {
-            font-size: 0.7rem;
+            font-size: 0.83 rem;
             letter-spacing: 0.22rem;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -824,6 +824,53 @@
             .logo-image { width: 70px; height: 70px; }
             .footer-logo-image { width: 80px; height: 80px; }
         }
+        /* ─── BRAND CAROUSEL ─── */
+        .brand-carousel-section {
+            padding: 60px 0;
+            background: var(--bg-dark);
+            overflow: hidden;
+        }
+
+        .carousel-label {
+            font-size: 0.83rem;
+            letter-spacing: 0.22rem;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            font-family: var(--primary-font);
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .carousel-track-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: scrollLeft 28s linear infinite;
+        }
+
+        .carousel-track:hover { animation-play-state: paused; }
+        /* ─── STATS ─── */
+        .stats { gap: 3rem; }
+
+        .stat-item { display: flex; flex-direction: column; }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-family: var(--heading-font);
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05rem; }
+
     </style>
 </head>
 <body>
@@ -842,7 +889,7 @@
         <nav class="container">
             <a href="index.html" class="logo">
                 <img src="assets/logo1.png" alt="DB Events & Productions" class="logo-image">
-                <div class="logo-text">Events &<br>Productions</div>
+                
             </a>
             <ul class="nav-links" id="nav-links">
                 <li><a href="corporate.html">Corporate Events</a></li>
@@ -1059,7 +1106,7 @@
                 <p class="section-text" style="margin-bottom:4rem;">From intimate gatherings to grand multi-day affairs — every celebration is crafted with the same level of care and attention.</p>
                 <div class="grid grid-4-col" style="gap:2rem;text-align:left;">
                     <div class="celebration-card">
-                        <div class="card-image"><img src="assets/por13.jpg" alt="Intimate Weddings"></div>
+                        <div class="card-image"><img src="assets/ini.png" alt="Intimate Weddings"></div>
                         <h4>Intimate Weddings</h4>
                         <p>Elegant and meaningful celebrations designed with warmth, care and intentionality.</p>
                     </div>
@@ -1069,12 +1116,12 @@
                         <p>Immersive wedding experiences executed seamlessly across multiple events and guest touchpoints.</p>
                     </div>
                     <div class="celebration-card">
-                        <div class="card-image"><img src="assets/cor11.jpg" alt="South Indian Weddings"></div>
+                        <div class="card-image"><img src="assets/south.png" alt="South Indian Weddings"></div>
                         <h4>South Indian Weddings</h4>
                         <p>Celebrations rooted in culture, tradition and hospitality with elevated modern aesthetics.</p>
                     </div>
                     <div class="celebration-card">
-                        <div class="card-image"><img src="assets/por1.jpg" alt="Destination Style Weddings"></div>
+                        <div class="card-image"><img src="assets/des.png" alt="Destination Style Weddings"></div>
                         <h4>Destination-Style Weddings</h4>
                         <p>Globally inspired wedding experiences curated within Coimbatore and across South India.</p>
                     </div>
@@ -1119,6 +1166,63 @@
             </div>
         </section>
 
+        <!-- ─── DARK STATS + CAROUSEL ─── -->
+        <section class="section-padding bg-dark text-white">
+            <div class="container">
+                <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem;">
+                    <div>
+                        <p class="overline" style="color:rgba(255,255,255,0.4);">By The Numbers</p>
+                        <div class="accent-line"></div>
+                        <h2 class="section-title">Trusted by Brands<br>&amp; Global Leaders</h2>
+                    </div>
+                    <div style="display:flex;gap:4rem;">
+                        <div class="stat-item"><span class="stat-number">400+</span><span class="stat-label">Wedding Events</span></div>
+                        <div class="stat-item"><span class="stat-number">200+</span><span class="stat-label">Brands Served</span></div>
+                        <div class="stat-item"><span class="stat-number">35+</span><span class="stat-label">Years Experience</span></div>
+                    </div>
+                </div>
+                <div class="carousel-track-wrapper" style="margin-top:3rem;">
+                    <div class="carousel-track" id="carousel-track-2">
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/google.png" alt="Google" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/infosys.png" alt="Infosys" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/comet.png" alt="Comet" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/accenture.png" alt="Accenture" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/american.png" alt="American" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/aprilia.png" alt="Aprilia" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/aws.png" alt="AWS" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/ceat.png" alt="CEAT" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/cii.png" alt="CII" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/eifco.png" alt="Eifco" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/ferrari.png" alt="Ferrari" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/flipkart.png" alt="Flipkart" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/ford.png" alt="Ford" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/hero.png" alt="Hero" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/ibm.png" alt="IBM" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/icai.png" alt="ICAI" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/khelo.png" alt="Khelo India" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/ktm.png" alt="KTM" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/logitech.png" alt="Logitech" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/lt.png" alt="L&T" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/meta.png" alt="Meta" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/mg.png" alt="MG" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/redbull.png" alt="Red Bull" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/sagility.png" alt="Sagility" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/ssvm.png" alt="SSVM" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/startuptn.png" alt="StartupTN" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/sun.png" alt="Sun" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/tp.png" alt="TP" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/tv9.png" alt="TV9" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/uni.png" alt="Uni" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/wattnexx.png" alt="Wattnexx" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/wipro.png" alt="Wipro" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/yotta.png" alt="Yotta" loading="lazy"></div>
+                        <div class="brand-logo-card" style="background:#ffffff; border-color:rgba(255,255,255,0.15);"><img src="assets/brands/zuari.png" alt="Zuari" loading="lazy"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ─── CTA ─── -->
         <section id="contact" class="cta-section section-padding">
             <div class="container text-center">
@@ -1152,7 +1256,10 @@
             </div>
         </section>
 
+        
+
     </main>
+<!--
 
     <!-- ─── FOOTER ─── -->
     <footer>
@@ -1161,7 +1268,7 @@
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <img src="assets/logo1.png" alt="DB Events & Productions" class="footer-logo-image">
-                        <div class="footer-logo-text">Events &<br>Productions</div>
+                    
                     </div>
                     <p>Coimbatore's premier event management studio. Delivering world-class wedding and corporate experiences across South India.</p>
                     <div class="footer-social-row">
